@@ -1,10 +1,18 @@
 <?php
+require_once 'connection.php';
+require_once 'WardTableGateway.php';
+
 $id = session_id();
 if ($id == "") {
     session_start();
 }
 
 require 'ensureUserLoggedIn.php';
+
+$conn = Connection::getInstance();
+$wardGateway = new WardTableGateway($conn);
+
+$wards = $wardGateway->getWards();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,6 +28,7 @@ require 'ensureUserLoggedIn.php';
             <h1>Create Patient Form</h1>
             <ul class ="menu">
                 <li><?php require 'toolbar.php' ?>
+                    <?php require 'header.php' ?>
                     <?php
                     if (isset($errorMessage)) {
                         echo '<p>Error: ' . $errorMessage . '</p>';
