@@ -22,6 +22,26 @@ class PatientTableGateway {
         return $statement;
     }
     
+    public function getPatientByWardId($wardID) {
+        // execute a query to get the user with the specified id
+        $sqlQuery = "SELECT p. *, w.name AS wardName
+                    FROM patients p 
+                    LEFT JOIN wards w ON w.id = p.wardID
+                    WHERE p.wardID = :wardID";
+        
+        $params = array(
+            "wardID" => $wardID
+        );
+        $statement = $this->connection->prepare($sqlQuery);
+        $status = $statement->execute($params);
+        
+        if (!$status) {
+            die("Could not retrieve user");
+        }
+        
+        return $statement;
+    }
+    
     public function getPatientById($patientID) {
         // execute a query to get the user with the specified id
         $sqlQuery = "SELECT * FROM patient WHERE patientID = :id";
@@ -68,7 +88,7 @@ class PatientTableGateway {
         return $id;
     }
     
-        public function deletePatient($id) {
+    public function deletePatient($id) {
         $sqlQuery = "DELETE FROM patient WHERE patientID = :patientID";
 
         $statement = $this->connection->prepare($sqlQuery);
@@ -85,7 +105,7 @@ class PatientTableGateway {
         return ($statement->rowCount() == 1);
     }
     
-        public function updatePatient($pID, $fN, $lN, $a, $pN, $e, $d, $dA, $wID) {
+    public function updatePatient($pID, $fN, $lN, $a, $pN, $e, $d, $dA, $wID) {
         $sqlQuery =
                 "UPDATE patient SET " .
                 "fName = :firstName, " .

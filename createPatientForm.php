@@ -28,7 +28,6 @@ $wards = $wardGateway->getWards();
             <h1>Create Patient Form</h1>
             <ul class ="menu">
                 <li><?php require 'toolbar.php' ?>
-                    <?php require 'header.php' ?>
                     <?php
                     if (isset($errorMessage)) {
                         echo '<p>Error: ' . $errorMessage . '</p>';
@@ -94,8 +93,15 @@ $wards = $wardGateway->getWards();
                         <tr>
                             <td>Ward ID (1 - 5)</td>
                             <td>
-                                <input type="text" name="wardID" value="" />
-                                <span id="wardIDError" class="error"></span>
+                                <select name="wardID">
+                                    <option value="-1">No Ward</option>
+                                    <?php
+                                    $w = $wards->fetch(PDO::FETCH_ASSOC);
+                                    while ($w) {
+                                        echo '<option value="' . $w['id'] .'">' . $w['wardName'] . '</option>';
+                                        $w = $wards->fetch(PDO::FETCH_ASSOC);
+                                    }
+                                    ?>
                             </td>
                         </tr>
                         <tr>

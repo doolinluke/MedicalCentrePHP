@@ -24,6 +24,9 @@ $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL);
 $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING);
 $dateAdmitted = filter_input(INPUT_POST, 'dateAdmitted', FILTER_SANITIZE_STRING);
 $wardID = filter_input(INPUT_POST, 'wardID', FILTER_SANITIZE_NUMBER_INT);
+    if ($wardID == -1) {
+        $wardID = NULL;
+    }
  
 //if statements to validate form, works with createEvent.php
 $errorMessage = array();
