@@ -14,7 +14,7 @@ $wards = $wardGateway->getWards();
     <head>
         <meta charset="UTF-8">
         <script type="text/javascript" src="js/programmer.js"></script>
-        <?php require "styles.php" ?>
+        
         <title></title>
     </head>
     <body>
@@ -31,10 +31,9 @@ $wards = $wardGateway->getWards();
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Office</th>
-                        <th>Extension</th>
-                        <th>Actions</th>
+                        <th>ward name</th>
+                        <th>number of beds</th>
+                        <th>head nurse</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -43,13 +42,13 @@ $wards = $wardGateway->getWards();
                     while ($row) {
 
 
-                        echo '<td>' . $row['name'] . '</td>';
-                        echo '<td>' . $row['office'] . '</td>';
-                        echo '<td>' . $row['extension'] . '</td>';
+                        echo '<td>' . $row['wardName'] . '</td>';
+                        echo '<td>' . $row['numberBeds'] . '</td>';
+                        echo '<td>' . $row['headNurse'] . '</td>';
                         echo '<td>'
-                        . '<a href="viewWard.php?id='.$row['id'].'">View</a> '
-                        . '<a href="editWardForm.php?id='.$row['id'].'">Edit</a> '
-                        . '<a class="deleteWard" href="deleteWard.php?id='.$row['id'].'">Delete</a> '
+                        . '<a href="viewWard.php?id='.$row['wID'].'">View</a> '
+                        . '<a href="editWardForm.php?id='.$row['wID'].'">Edit</a> '
+                        . '<a class="deleteWard" href="deleteWard.php?id='.$row['wID'].'">Delete</a> '
                         . '</td>';
                         echo '</tr>';
 
@@ -60,7 +59,7 @@ $wards = $wardGateway->getWards();
             </table>
             <p><a href="createWardForm.php">Create Ward</a></p>
         </div>
-        <?php require 'footer.php'; ?>
-        <?php require 'scripts.php'; ?>
+        
+        
     </body>
 </html>

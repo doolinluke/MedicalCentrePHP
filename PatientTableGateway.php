@@ -11,6 +11,9 @@ class PatientTableGateway {
     public function getPatients() {
         // execute a query to get all patients
         $sqlQuery = "SELECT * FROM patient";
+                    "SELECT p.*, w.wardName AS wardName
+                    FROM patient p
+                    LEFT JOIN ward w ON w.wardID = p.wardID";
         
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
@@ -22,12 +25,12 @@ class PatientTableGateway {
         return $statement;
     }
     
-    public function getPatientByWardId($wardID) {
+    public function getPatientsByWardId($wardID) {
         // execute a query to get the user with the specified id
-        $sqlQuery = "SELECT p. *, w.name AS wardName
+        $sqlQuery = "SELECT * FROM patient, w.wardName AS wardName
                     FROM patients p 
                     LEFT JOIN wards w ON w.id = p.wardID
-                    WHERE p.wardID = :wardID";
+                    WHERE w.wardID = :wardID";
         
         $params = array(
             "wardID" => $wardID
@@ -65,6 +68,10 @@ class PatientTableGateway {
                 "(fName, lName, address, phoneNumber, email, dob, dateAdmitted, wardID) " .
                 "VALUES (:fName, :lName, :address, :phoneNumber, :email, :dob, :dateAdmitted, :wardID)";
         
+        if ($wID == -1) {
+            $wID = NULL;
+        }
+        
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
             "fName" => $fN,
@@ -74,8 +81,13 @@ class PatientTableGateway {
             "email" => $e,
             "dob" => $d,
             "dateAdmitted" => $dA,
-            "wardID" => $wID,
+            "wardID" => $wID
         );
+         echo '<pre>';
+        print_r($sqlQuery);
+        print_r($params);
+        print_r($_POST);
+        echo '</pre>';
         
         $status = $statement->execute($params);
         
@@ -132,7 +144,7 @@ class PatientTableGateway {
             "email" => $e,
             "dateOfBirth" => $d,
             "dateAdmitted" => $dA,
-            "wardID" => $wID,
+            "wardID" => $wID
         );
 
         $status = $statement->execute($params);

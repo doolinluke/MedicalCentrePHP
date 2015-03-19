@@ -170,7 +170,7 @@ $wards = $wardGateway->getWards();
                                     <?php
                                     $w = $wards->fetch(PDO::FETCH_ASSOC);
                                     while ($w) {
-                                        echo '<option value="' . $w['id'] .'">' . $w['wardName'] . '</option>';
+                                        echo '<option value="' . $w['wardID'] .'">' . $w['wardName'] . '</option>';
                                         $w = $wards->fetch(PDO::FETCH_ASSOC);
                                     }
                                     ?>
