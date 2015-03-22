@@ -1,0 +1,293 @@
+<!-- This is my custom css-->
+
+headerUpper {
+    height: 40px;
+    background-color: black;
+}
+
+body {
+    background-color: #fcfafa;
+}
+
+.jumbotron {
+    background-image: url('../img/jumbotron.jpg');
+    background-repeat: no-repeat;
+    min-height: 500px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+.jumbotron h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    color: #f5f7fa;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 5px;
+    vertical-align: middle;
+}
+
+.jumbotron p{
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f5f7fa;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.jumbotron a {
+    background-color: #3ca3ca;
+    border: none;
+}
+
+.jumbotron a:hover {
+    background-color: #00bc9c;
+    border: none;
+}
+.navbar {
+    height: 100px;
+    background-color: #f5f7fb;
+    border-bottom: 1px solid #dddddd;  
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar-brand {
+    color: #506a85;
+}
+
+h1 {
+    margin-top: 100px;
+}
+
+h4 {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: #506a85;
+}
+
+.bio h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    color: #dddddd;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.bio p {
+    font-family: 'Lato', sans-serif;
+    font-size: 17px;
+    color: #dddddd;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.jumbotron-2 {
+    background-image: url('../img/team.png');
+    background-repeat: no-repeat;
+    min-height: 500px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+.jumbotron-2 h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    color: #f5f7fa;
+    text-align: left;
+    line-height: 50px;
+    letter-spacing: 5px;
+    vertical-align: middle;
+}
+
+.jumbotron-2 p{
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    color: #f5f7fa;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.jumbotron-2 a {
+    background-color: #3ca3ca;
+    border: none;
+    //text-shadow: shadow;
+}
+
+.jumbotron-2 a:hover {
+    background-color: #00bc9c;
+    border: none;
+    //text-shadow: shadow;
+    font-weight: bold;
+}
+
+.tour {
+    font-family: Lato, sans-serif; 
+    margin-bottom: 100px;
+}
+
+.tour h1 {
+    font-family: Lato, sans-serif;
+    color: #dddddd;
+}
+
+.tour a {
+    background-color: #3ca3ca;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 70px;
+}
+
+.tour a:hover {
+    background-color: #00bc9c;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 70px;
+}
+
+.tour p {
+    font-size: 17px;
+    color: #dddddd;
+}
+
+.options {
+    font-family: Lato, sans-serif;
+    color: #dddddd;
+}
+
+.options h4 {
+    color: #dddddd;
+}
+
+.bottom {
+    background-color: #dddddd;
+    min-height: 200px;
+    bottom: 0;
+}
+
+.bottom h3 {
+    font-family: Lato, sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: left;
+}
+
+.bottom p {
+    font-family: Lato, sans-serif;
+    color: #3ca3ca;
+    font-size: 13px;
+}
+
+.footer {
+    display: inline;
+    list-style-type: none;
+}
+
+.footer ul {
+    text-align: left;
+}
+
+.footer li {
+    padding-right: 10px;
+}
+
+.footer h3 {
+    font-family: Lato, sans-serif;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: left;
+}
+
+.bottom a {
+    background-color: #00bc9c;
+    border: none;
+}
+
+.bottom a:hover {
+    background-color: #3ca3ca;
+    border: none;
+}
+
+.bottom input {
+    font-family: Lato, sans-serif;
+    font-size: 13px;
+    background-color: #c7c7c7;
+    border: none;
+}
+
+.footerBar {
+    background-color: #898989;
+    font-family: Lato, sans-serif;
+    font-size: 13px;
+    color: #3ca3ca; 
+    min-height: 40px;
+}
+
+.footerBar ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+.footerBar ul li {
+    font-family: Lato, sans-serif;
+    font-size: 13px;
+    padding-right: 5px;
+}
+
+.nav navbar-nav navbar-right li {
+    color: #3ca3ca; 
+    font-size: 15px;
+}
+
+.item h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    color: #f5f7fa;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 3px;
+    vertical-align: middle;
+}
+
+.item p {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f5f7fa;
+    text-align: center;
+    vertical-align: middle; 
+    letter-spacing: 2px;
+}
+
+.carousel-caption a {
+    background-color: #3ca3ca;
+    border: none;
+}
+
+.carousel-caption a:hover {
+    background-color: #00bc9c;
+    border: none;
+}
+
+.footer navbar-nav ul {
+    padding-left: 0px;
+}
+
+.headerTop {
+    background-color: #e8ebee;
+}
+
+.headerTop ul {
+    display: inline-block;
+    list-style-type: none;
+}
