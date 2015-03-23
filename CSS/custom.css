@@ -291,3 +291,92 @@ h4 {
     display: inline-block;
     list-style-type: none;
 }
+
+.table {
+    margin-bottom: 70px;
+}
+
+.table tbody {
+    background-color: #dddddd;
+}
+
+.table td {
+    color: #3ca3ca;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+}
+
+.table th {
+    font-family: 'Lato', sans-serif;
+    color: #bababa;
+}
+
+.welcome h1 {
+    font-family: 'Lato', sans-serif;
+    color: #dddddd;
+    font-size: 40px;
+}
+
+.welcome h3 {
+    font-family: 'Lato', sans-serif;
+    color: #bababa;
+    font-size: 20px;
+    margin-bottom: 70px;
+}
+
+.createButton a {
+    background-color: #3ca3ca;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    border: none;
+    margin-bottom: 70px;
+}
+
+.createButton a:hover {
+    background-color: #dddddd;   
+}
+
+.table-bordered td {
+    font-family: 'Lato', sans-serif;
+}
+
+.table select {
+    font-family: 'Lato', sans-serif;
+    min-height: 50px;
+    background-color: #dddddd;
+    border: none;
+    text-shadow: none;
+}
+
+.table input:hover {
+    background-color: #00bc9c;
+}
+
+.table input {
+    border: none;
+    
+}
+
+.nav li a {
+    font-size: 15px;
+}
+
+.nav li a:hover {
+    color: #3ca3ca;
+}
+
+.logIn h1 {
+    font-family: 'Lato', sans-serif;
+    color: #dddddd;
+    font-size: 40px;
+    margin-top: 170px;
+    margin-bottom: 40px;
+}
+
+.register h1 {
+    font-family: 'Lato', sans-serif;
+    color: #dddddd;
+    font-size: 40px;
+    margin-top: 170px;
+    margin-bottom: 40px;    
+}

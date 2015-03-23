@@ -19,72 +19,230 @@ $statement = $gateway->getPatients();
 <!DOCTYPE html>
 <html>
     <head>
-        <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,400italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" type="text/css" href=CSS/style.css>
-        <meta charset="UTF-8">
-        <title>Medical Centre</title>
+        <meta charset="utf-8">
+        <title>My Website</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <script src="js/respond.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
     </head>
     <body>
-
-        <div id ="header">
-            <h1>Login</h1>
+    <div class="row"> 
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-brand">
+                    <p><img src="img/logo.png" alt="" class="img-responsive"></p>
+                </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="glyphicon glyphicon-arrow-down"></span>
+                      MENU
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Home</a></li>                    
+                        <li><a href="#">Services</a></li> 
+                        <li><a href="#">Book</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a class="btn btn-primary btn-large" href="login.php">Sign In</a></li>
+                        <li></li>
+                    </ul> 
+                </div>
             </div>
-            <div id ="body">
-                <script>
-                function myFunction() {
-                    var user = prompt("please enter your username", "Example");
-                    var user1 = prompt("please enter your email", "Example");
-                    var security = prompt("what is your mothers maiden name?", "Example");
+        </nav> 
+    </div>
+      
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <img src="img/carousel1.png" alt="Chania">
+              <div class="carousel-caption">
+                  <center><h1>RANELAGH MEDICAL CENTRE</h1>
+                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
+                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
+                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
+              </div>
+            </div>
 
-                    if (user !== null && user1 !== null) {
-                        alert("An email has been sent to User " + (user) + " with your password.");
-                    }
-                }
-                </script>
-                <form action="checkLogin.php" method="POST">
-                <table border="0">
-                    <tbody>
-                        <tr>
-                            <td class="FieldEnlarge">Username</td>
-                            <td>
-                                <input type="text"
-                                       name="username"
-                                       value="<?php echo $username; ?>" />
-                                <span id="usernameError" class="error">
-                                    <?php
-                                    if (isset($errorMessage) && isset($errorMessage['username'])) {
-                                        echo $errorMessage['username'];
-                                    }
-                                    ?>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td>
-                                <input type="password" name="password" value="" />
-                                <span id="passwordError" class="error">
-                                    <?php
-                                    if (isset($errorMessage) && isset($errorMessage['password'])) {
-                                        echo $errorMessage['password'];
-                                    }
-                                    ?>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td >
-                                <input type="submit" class="FieldEnlarge" value="Login" name="login" />
-                                <input type="button" class="FieldEnlargeByHalf alpha" value="Forgot Password" name="forgot" onclick="myFunction()" />
-                                <input type="button" class="FieldEnlargeByHalf alpha" value="Register" name="register" onclick="document.location.href = 'register.php'"/>
+            <div class="item">
+              <img src="img/carousel2.png" alt="Chania">
+              <div class="carousel-caption">
+              <center><h1>RANELAGH MEDICAL CENTRE</h1>
+                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
+                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
+                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
+              </div>
+            </div>
 
-                                <p id="demo"></p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>            
+            <div class="item">
+              <img src="img/carousel3.png" alt="Flower">
+              <div class="carousel-caption">
+              <center><h1>RANELAGH MEDICAL CENTRE</h1>
+                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
+                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
+                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
+              </div>
+            </div>
+
+            <div class="item">
+              <img src="img/carousel4.png" alt="Flower">
+              <div class="carousel-caption">
+              <center><h1>RANELAGH MEDICAL CENTRE</h1>
+                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
+                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
+                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
+              </div>
+            </div>
         </div>
-    </body>
+
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+    
+    <div class="row2 col-lg-12">
+        <div class="container">
+            <div class="bio col-lg-12">
+                <h1>Modern. Dynamic.Experienced.</h1>
+                <p>Ranelagh Medical Centre, providing a full range of general
+                practice care to public and private patients.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class = "row">
+        <div class="container">
+            <div class = "options col-md-3 col-xs-6">
+                <center>
+                    <p><img src="img/emergencyServices.png" alt="" class="img-responsive"></p>
+                    <h4>Emergency Services</h4>
+                </center>
+            </div>
+
+            <div class = "options col-md-3 col-xs-6">
+                <center>
+                    <p><img src="img/onlineServices.png" alt="" class="img-responsive"></p>
+                    <h4>Online Advice</h4>
+                </center>
+            </div>
+
+            <div class = "options col-md-3 col-xs-6">
+                <center>
+                    <p><img src="img/ourServices.png" alt="" class="img-responsive"></p>
+                    <h4>Our Services</h4>
+                </center>
+            </div>
+
+            <div class = "options col-md-3 col-xs-6">
+                <center>
+                    <p><img src="img/diagnostics.png" alt="" class="img-responsive"></p>
+                    <h4>Diagnostics</h4>
+                </center>
+            </div>
+        </div>
+    </div>
+    
+    <div class="jumbotron-2" class="img-responsive">             
+        <div class="container"> 
+            <div class="row">
+                <h1>About Us</h1>
+                <p>At Ranelagh Medical Centre we provide you with the most</p> 
+                <P>current, dynamic, professional and trustworthy public and private health care.</p>
+                <p>For over 20 years we have provided top quality medical services for all our patients.</p>
+                <a class="btn btn-primary btn-large" href="#">Meet The Team</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row2 col-lg-12">
+        <div class="container">
+            <div class="tour col-lg-12">
+                <center>
+                <h1>Want to see our home?</h1>
+                <p>Click here to take a tour of our award winning facilities and see where thousands 
+                of happy members come for the best medical care available.</p>
+                <a class="btn btn-primary btn-large" href="#">Take a Tour</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    
+    <div class = "row">
+        <div class = "bottom col-md-3 col-xs-6">
+            <ul class="footer navbar-nav">
+                <h3>FIND US HERE</h3>
+                <li><img src="img/fbicon.png" alt="" class="img-responsive"></li>                    
+                
+            </ul>
+        </div>
+
+        <div class = "bottom col-md-3 col-xs-6">
+            <h3>SEE OUR ENDORSEMENTS</h3>
+            <p>Click here to read reviews from satisfied members as well as professional endorsements and testimonials from highly regarded medical professionals.</p>
+        </div>
+
+        <div class = "bottom col-md-3 col-xs-6">
+            <h3>CONTACT US</h3>
+            <P>Feel free to get in touch. Either pop into us at our location, phone us, or you can email us.</P>
+            <ul class="footer navbar-nav">
+                <li><img src="img/locationicon.png" alt="" class="img-responsive"></li>                    
+                <li><p>84 Ranelagh Road, Ranelagh, D6</p></li> 
+            </ul>
+            <ul class="footer navbar-nav">
+                <li><img src="img/phoneicon.png" alt="" class="img-responsive"></li>                    
+                <li><p>0871234567</p></li> 
+            </ul>
+            <ul class="footer navbar-nav">
+                <li><img src="img/mailicon.png" alt="" class="img-responsive"></li>                    
+                <li><p>ranelaghmedcentre@gmail.com</p></li> 
+            </ul>
+        </div>
+
+        <div class = "bottom col-md-3 col-xs-6">
+                <h3>JOIN OUR MAILING LIST</h3>
+                <p>Enter you email address to keep up to date with new membership offers.</p>
+                <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class = "footerBar col-md-6 col-xs-6">
+            <p>© Ranelagh Medical Centre. All rights reserved.</p>
+        </div>
+   
+        <div class = "footerBar col-md-6  col-xs-6">
+            <ul class="footerBar navbar-nav">
+                <li>Home</li>
+                <li>Our Team</li>
+                <li>Services</li>
+                <li>Book</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+    </div>
+</body>
 </html>
+    
+    
+    
+    <!-- row 2: header -->
+    
+
+<!--</div> <!-- end container -->
+
+<!-- javascript -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+		$('a.btn-info').tooltip()
+	</script>
