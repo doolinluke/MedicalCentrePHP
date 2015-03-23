@@ -43,7 +43,7 @@ class WardTableGateway {
     public function insertWard($n, $nb, $hn) {
         $sqlQuery = "INSERT INTO ward " .
                 "(wardName, numberBeds, headNurse) " .
-                "VALUES (:Ward Name, :Number of Beds, :Head Nurse)";
+                "VALUES (:wardName, :numberBeds, :headNurse)";
 
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
@@ -83,9 +83,9 @@ class WardTableGateway {
     public function updateWard($wardID, $n, $nb, $hn) {
         $sqlQuery =
                 "UPDATE ward SET " .
-                "name = :name, " .
-                "office = :office, " .
-                "extension = :extension " .
+                "wardName = :wardName, " .
+                "numberBeds = :numberBeds, " .
+                "headNurse = :headNurse " .
                 "WHERE wardID = :wardID";
 
         $statement = $this->connection->prepare($sqlQuery);

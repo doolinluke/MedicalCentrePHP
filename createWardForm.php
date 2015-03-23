@@ -1,11 +1,17 @@
 <?php
-require_once 'Connection.php';
+require_once 'connection.php';
 require_once 'WardTableGateway.php';
+require_once 'PatientTableGateway.php';
+
+$id = session_id();
+if ($id == "") {
+    session_start();
+}
 
 require 'ensureUserLoggedIn.php';
 
-$connection = Connection::getInstance();
-$wardGateway = new WardTableGateway($connection);
+$conn = Connection::getInstance();
+$wardGateway = new WardTableGateway($conn);
 
 $wards = $wardGateway->getWards();
 ?>
@@ -56,19 +62,18 @@ $wards = $wardGateway->getWards();
                 </div>
             </nav> 
         </div>
-        
         <div class = "row">
             <div class="container">
                 <div class = "options col-md-3 col-xs-6">
                     <center>
-                        <a href="home.php"><img src="img/patient2.png" alt="" class="img-responsive"></a>
+                        <a href="home.php"><img src="img/patient1.png" alt="" class="img-responsive"></a>
                         <h4>Patients</h4>
                     </center>
                 </div>
 
                 <div class = "options col-md-3 col-xs-6">
                     <center>
-                        <a href="viewWards.php"><img src="img/ward1.png" alt="" class="img-responsive"></a>
+                        <p><img src="img/ward2.png" alt="" class="img-responsive"></p>
                         <h4>Wards</h4>
                     </center>
                 </div>
@@ -88,49 +93,79 @@ $wards = $wardGateway->getWards();
                 </div>
             </div>
         </div>
-        
-        <div class="container">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Ward Name</th>
-                        <th>Number of Beds</th>
-                        <th>Head Nurse</th> 
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $row = $wards->fetch(PDO::FETCH_ASSOC);
-                    while ($row) {
-
-
-                        echo '<td>' . $row['wardName'] . '</td>';
-                        echo '<td>' . $row['numberBeds'] . '</td>';
-                        echo '<td>' . $row['headNurse'] . '</td>';
-                        echo '<td>'
-                        . '<a class="btn btn-view btn-xs" href="viewWard.php?id='.$row['wardID'].'">View</a> '
-                        . '<a class="btn btn-edit btn-xs" href="editWardForm.php?id='.$row['wardID'].'">Edit</a> '                       
-                        . '<a class="deletePatient" href="deleteWard.php?id=' . $row['wardID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
-                        . '</td>';
-                        echo '</tr>';
-
-                        $row = $wards->fetch(PDO::FETCH_ASSOC);
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="row">
-            <div class="createButton">
+        <div class = "row">
+            <div class="welcome">
                 <div class="container">
-                    <a class="btn btn-create btn-large" href="createWardForm.php">Create Ward</a>
+                    <h1>Create New Patient</h1>
                 </div>
             </div>
         </div>
-        
-        <div class="footerGroup">
+        <form action="createWard.php" method="POST" id="createWardForm">
+            <div class="container">
+                <table class="table table-bordered">                
+                        <tbody>
+                            <tr>
+                                <td>Ward Name</td>
+                                <td>
+                                    <input type="text" name="wardName" value="<?php
+                                        if (isset($_POST) && isset($_POST['wardName'])) {
+                                            echo $_POST['wardName'];
+                                        }
+                                    ?>" />
+                                    <span id="wardNameError" class="error">
+                                        <?php
+                                        if (isset($errorMessage) && isset($errorMessage['wardNameError'])) {
+                                            echo $errorMessage['wardNameError'];
+                                        }
+                                        ?>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Number Beds</td>
+                                <td>
+                                    <input type="text" name="numberBeds" value="<?php
+                                        if (isset($_POST) && isset($_POST['numberBeds'])) {
+                                            echo $_POST['numberBeds'];
+                                        }
+                                    ?>" />
+                                    <span id="numberBedsError" class="error">
+                                        <?php
+                                        if (isset($errorMessage) && isset($errorMessage['numberBeds'])) {
+                                            echo $errorMessage['numberBeds'];
+                                        }
+                                        ?>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Head Nurse</td>
+                                <td>
+                                    <input type="text" name="headNurse" value="<?php
+                                        if (isset($_POST) && isset($_POST['headNurse'])) {
+                                            echo $_POST['headNurse'];
+                                        }
+                                    ?>" />
+                                    <span id="headNurseError" class="error">
+                                        <?php
+                                        if (isset($errorMessage) && isset($errorMessage['headNurse'])) {
+                                            echo $errorMessage['headNurse'];
+                                        }
+                                        ?>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" class="btn btn-info" value="Submit">
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+            </div>
+        </form>
+       
         <div class = "row">
             <div class="row3">
                 <div class = "bottom col-md-3 col-xs-6">
@@ -161,10 +196,10 @@ $wards = $wardGateway->getWards();
                 </div>
             </div>
         </div>
+    
         <div class="row">
             <div class = "footerBar col-md-12 col-xs-12">
                 <p>© Ranelagh Medical Centre. All rights reserved.</p>
-            </div>
             </div>
         </div>
         <!-- javascript -->

@@ -33,7 +33,7 @@ $patients = $patientGateway->getPatientsByWardId($id);
         <?php require 'toolbar.php' ?>
         <?php require 'header.php' ?>
         <?php require 'mainMenu.php' ?>
-        <h2>View Manager Details</h2>
+        <h2>View Ward Details</h2>
         <?php
         if (isset($message)) {
             echo '<p>'.$message.'</p>';
@@ -59,7 +59,7 @@ $patients = $patientGateway->getPatientsByWardId($id);
             </tbody>
         </table>
         <p>
-            <a href="editWardForm.php?id=<?php echo $ward['id']; ?>">
+            <a href="editWardForm.php?id=<?php echo $ward['wardID']; ?>">
                 Edit Ward</a>
             <a class="deleteWard" href="deleteWard.php?id=<?php echo $ward['wardID']; ?>">
                 Delete Ward</a>

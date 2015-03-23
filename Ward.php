@@ -11,8 +11,8 @@ class Ward {
     public function __construct($wID, $wN, $nB, $hN) {
         $this->wardID = $wID;
         $this->wardName = $wN;
-        $this->$numberBeds = $nB;
-        $this->$headNurse = $hN;
+        $this->numberBeds = $nB;
+        $this->headNurse = $hN;
     }
     
     /*Gets values entered in createWard and returns them to the instances*/
