@@ -27,13 +27,15 @@ $statement = $gateway->getPatients();
         <link href="css/custom.css" rel="stylesheet">
         <script src="js/respond.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </head>
     <body>
     <div class="row"> 
         <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
             <div class="container">
                 <div class="navbar-brand">
-                    <p><img src="img/logo.png" alt="" class="img-responsive"></p>
+                    <p><img src="img/newlogo.png" alt="" class="img-responsive"></p>
                 </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
@@ -48,8 +50,8 @@ $statement = $gateway->getPatients();
                         <li><a href="#">Services</a></li> 
                         <li><a href="#">Book</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a class="btn btn-primary btn-large" href="login.php">Sign In</a></li>
-                        <li></li>
+                        <li><a href="home.php">Admin</a></li>
+                        <li class=""><?php require 'toolbar.php' ?></li>
                     </ul> 
                 </div>
             </div>
@@ -57,48 +59,58 @@ $statement = $gateway->getPatients();
     </div>
       
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              <img src="img/carousel1.png" alt="Chania">
-              <div class="carousel-caption">
-                  <center><h1>RANELAGH MEDICAL CENTRE</h1>
-                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
-                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
-                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
-              </div>
-            </div>
-
-            <div class="item">
-              <img src="img/carousel2.png" alt="Chania">
-              <div class="carousel-caption">
+          <div class="item active">
+            <img src="img/carousel4.png" alt="">
+            <div class="carousel-caption">
               <center><h1>RANELAGH MEDICAL CENTRE</h1>
-                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
-                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
-                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
-              </div>
+              <p>At Ranelagh Medical Centre we provide you with the most</p>
+              <p>current, dynamic, professional and trustworthy public and private health care</p>
+              <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
             </div>
+          </div>
 
-            <div class="item">
-              <img src="img/carousel3.png" alt="Flower">
-              <div class="carousel-caption">
+          <div class="item">
+            <img src="img/carousel2.png" alt="">
+            <div class="carousel-caption">
               <center><h1>RANELAGH MEDICAL CENTRE</h1>
-                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
-                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
-                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
-              </div>
+              <p>At Ranelagh Medical Centre we provide you with the most</p>
+              <p>current, dynamic, professional and trustworthy public and private health care</p>
+              <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
             </div>
+          </div>
 
-            <div class="item">
-              <img src="img/carousel4.png" alt="Flower">
-              <div class="carousel-caption">
+          <div class="item">
+            <img src="img/carousel3.png" alt="">
+            <div class="carousel-caption">
               <center><h1>RANELAGH MEDICAL CENTRE</h1>
-                  <p>At Ranelagh Medical Centre we provide you with the most</p> 
-                  <P>current, dynamic, professional and trustworthy public and private health care.</p>
-                  <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
-              </div>
+              <p>At Ranelagh Medical Centre we provide you with the most</p>
+              <p>current, dynamic, professional and trustworthy public and private health care</p>
+              <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
             </div>
+          </div>
+
+          <div class="item">
+            <img src="img/carousel1.png" alt="">
+            <div class="carousel-caption">
+              <center><h1>RANELAGH MEDICAL CENTRE</h1>
+              <p>At Ranelagh Medical Centre we provide you with the most</p>
+              <p>current, dynamic, professional and trustworthy public and private health care</p>
+              <a class="btn btn-primary btn-large" href="#">Join Us Now</a></center>
+            </div>
+          </div>
         </div>
 
+        <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -122,31 +134,23 @@ $statement = $gateway->getPatients();
     <div class = "row">
         <div class="container">
             <div class = "options col-md-3 col-xs-6">
-                <center>
                     <p><img src="img/emergencyServices.png" alt="" class="img-responsive"></p>
                     <h4>Emergency Services</h4>
-                </center>
             </div>
 
             <div class = "options col-md-3 col-xs-6">
-                <center>
                     <p><img src="img/onlineServices.png" alt="" class="img-responsive"></p>
                     <h4>Online Advice</h4>
-                </center>
             </div>
 
             <div class = "options col-md-3 col-xs-6">
-                <center>
                     <p><img src="img/ourServices.png" alt="" class="img-responsive"></p>
                     <h4>Our Services</h4>
-                </center>
             </div>
 
             <div class = "options col-md-3 col-xs-6">
-                <center>
                     <p><img src="img/diagnostics.png" alt="" class="img-responsive"></p>
                     <h4>Diagnostics</h4>
-                </center>
             </div>
         </div>
     </div>
@@ -175,74 +179,53 @@ $statement = $gateway->getPatients();
             </div>
         </div>
     </div>
-    
-    <div class = "row">
-        <div class = "bottom col-md-3 col-xs-6">
-            <ul class="footer navbar-nav">
-                <h3>FIND US HERE</h3>
-                <li><img src="img/fbicon.png" alt="" class="img-responsive"></li>                    
-                
-            </ul>
+    <div class="footerGroup">
+        <div class = "row">
+            <div class="row3">
+                <div class = "bottom col-md-3 col-xs-6">
+                    <ul class="footer navbar-nav">
+                        <h3>FIND US HERE</h3>
+                        <li><img src="img/fbicon.png" alt="" class="img-responsive"></li>                    
+                    </ul>
+                </div>
+
+                <div class = "bottom col-md-3 col-xs-6">
+                    <h3>SEE OUR ENDORSEMENTS</h3>
+                    <p>Click here to read reviews from satisfied members as well as professional endorsements and testimonials from highly regarded medical professionals.</p>
+                </div>
+
+                <div class = "bottom col-md-3 col-xs-6">
+                    <h3>CONTACT US</h3>
+                    <P>Feel free to get in touch. Either pop into us at our location, phone us, or you can email us.</P>
+                    <p>84 Ranelagh Road, Ranelagh, D6</p>
+                    <p>Phone: 0871234567</p>
+                    <p>ranelaghmedcentre@gmail.com</p>
+                </div>
+
+                <div class = "bottom col-md-3 col-xs-6">
+                        <h3>JOIN OUR MAILING LIST</h3>
+                        <p>Enter you email address to keep up to date with new membership offers.</p>
+                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                </div>
+            </div>
         </div>
 
-        <div class = "bottom col-md-3 col-xs-6">
-            <h3>SEE OUR ENDORSEMENTS</h3>
-            <p>Click here to read reviews from satisfied members as well as professional endorsements and testimonials from highly regarded medical professionals.</p>
-        </div>
-
-        <div class = "bottom col-md-3 col-xs-6">
-            <h3>CONTACT US</h3>
-            <P>Feel free to get in touch. Either pop into us at our location, phone us, or you can email us.</P>
-            <ul class="footer navbar-nav">
-                <li><img src="img/locationicon.png" alt="" class="img-responsive"></li>                    
-                <li><p>84 Ranelagh Road, Ranelagh, D6</p></li> 
-            </ul>
-            <ul class="footer navbar-nav">
-                <li><img src="img/phoneicon.png" alt="" class="img-responsive"></li>                    
-                <li><p>0871234567</p></li> 
-            </ul>
-            <ul class="footer navbar-nav">
-                <li><img src="img/mailicon.png" alt="" class="img-responsive"></li>                    
-                <li><p>ranelaghmedcentre@gmail.com</p></li> 
-            </ul>
-        </div>
-
-        <div class = "bottom col-md-3 col-xs-6">
-                <h3>JOIN OUR MAILING LIST</h3>
-                <p>Enter you email address to keep up to date with new membership offers.</p>
-                <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+        <div class="row">
+            <div class = "footerBar col-md-12 col-xs-12">
+                <p>© Ranelagh Medical Centre. All rights reserved.</p>
+            </div>
         </div>
     </div>
-    
-    <div class="row">
-        <div class = "footerBar col-md-6 col-xs-6">
-            <p>© Ranelagh Medical Centre. All rights reserved.</p>
-        </div>
-   
-        <div class = "footerBar col-md-6  col-xs-6">
-            <ul class="footerBar navbar-nav">
-                <li>Home</li>
-                <li>Our Team</li>
-                <li>Services</li>
-                <li>Book</li>
-                <li>Contact</li>
-            </ul>
-        </div>
-    </div>
-</body>
+    <!-- javascript -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $('a.btn-info').tooltip()
+    </script>
+    </body>
 </html>
     
     
     
-    <!-- row 2: header -->
-    
 
-<!--</div> <!-- end container -->
-
-<!-- javascript -->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>
-		$('a.btn-info').tooltip()
-	</script>

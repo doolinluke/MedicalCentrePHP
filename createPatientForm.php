@@ -41,7 +41,7 @@ $wards = $wardGateway->getWards();
             <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
                 <div class="container">
                     <div class="navbar-brand">
-                        <p><img src="img/logo.png" alt="" class="img-responsive"></p>
+                        <p><img src="img/newlogo.png" alt="" class="img-responsive"></p>
                     </div>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
@@ -52,17 +52,54 @@ $wards = $wardGateway->getWards();
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">Home</a></li>                    
+                            <li><a href="index.php">Home</a></li>                    
                             <li><a href="#">Services</a></li> 
                             <li><a href="#">Book</a></li>
                             <li><a href="#">Contact</a></li>
-                            <li><a class="btn btn-primary btn-large" href="toolbar.php">Log Out</a></li>
-                            <li></li>
+                            <li class=""><?php require 'toolbar.php' ?></li>
                         </ul> 
                     </div>
                 </div>
             </nav> 
-        </div>        
+        </div>
+        <div class = "row">
+            <div class="container">
+                <div class = "options col-md-3 col-xs-6">
+                    <center>
+                        <a href="home.php"><img src="img/patient1.png" alt="" class="img-responsive"></a>
+                        <h4>Patients</h4>
+                    </center>
+                </div>
+
+                <div class = "options col-md-3 col-xs-6">
+                    <center>
+                        <p><img src="img/ward2.png" alt="" class="img-responsive"></p>
+                        <h4>Wards</h4>
+                    </center>
+                </div>
+
+                <div class = "options col-md-3 col-xs-6">
+                    <center>
+                        <p><img src="img/doctor.png" alt="" class="img-responsive"></p>
+                        <h4>Doctors</h4>
+                    </center>
+                </div>
+
+                <div class = "options col-md-3 col-xs-6">
+                    <center>
+                        <p><img src="img/madication.png" alt="" class="img-responsive"></p>
+                        <h4>Medication</h4>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="welcome">
+                <div class="container">
+                    <h1>Create New Patient</h1>
+                </div>
+            </div>
+        </div>
         <form action="createPatient.php" method="POST" id="createPatientForm">
             <div class="container">
                 <table class="table table-bordered">                
@@ -187,7 +224,7 @@ $wards = $wardGateway->getWards();
                                 </td>
                             </tr>
                             <tr>
-                                <td>Ward ID (1 - 5)</td>
+                                <td>Ward</td>
                                 <td>
                                     <select name="wardID">
                                         <option value="-1">No Ward</option>
@@ -212,57 +249,46 @@ $wards = $wardGateway->getWards();
         </form>
        
         <div class = "row">
-            <div class = "bottom col-md-3 col-xs-6">
-                <ul class="footer navbar-nav">
-                    <h3>FIND US HERE</h3>
-                    <li><img src="img/fbicon.png" alt="" class="img-responsive"></li>                    
-                </ul>
-            </div>
+            <div class="row3">
+                <div class = "bottom col-md-3 col-xs-6">
+                    <ul class="footer navbar-nav">
+                        <h3>FIND US HERE</h3>
+                        <li><img src="img/fbicon.png" alt="" class="img-responsive"></li>                    
+                    </ul>
+                </div>
 
-            <div class = "bottom col-md-3 col-xs-6">
-                <h3>SEE OUR ENDORSEMENTS</h3>
-                <p>Click here to read reviews from satisfied members as well as professional endorsements and testimonials from highly regarded medical professionals.</p>
-            </div>
+                <div class = "bottom col-md-3 col-xs-6">
+                    <h3>SEE OUR ENDORSEMENTS</h3>
+                    <p>Click here to read reviews from satisfied members as well as professional endorsements and testimonials from highly regarded medical professionals.</p>
+                </div>
 
-            <div class = "bottom col-md-3 col-xs-6">
-                <h3>CONTACT US</h3>
-                <P>Feel free to get in touch. Either pop into us at our location, phone us, or you can email us.</P>
-                <ul class="footer navbar-nav">
-                    <li><img src="img/locationicon.png" alt="" class="img-responsive"></li>                    
-                    <li><p>84 Ranelagh Road, Ranelagh, D6</p></li> 
-                </ul>
-                <ul class="footer navbar-nav">
-                    <li><img src="img/phoneicon.png" alt="" class="img-responsive"></li>                    
-                    <li><p>0871234567</p></li> 
-                </ul>
-                <ul class="footer navbar-nav">
-                    <li><img src="img/mailicon.png" alt="" class="img-responsive"></li>                    
-                    <li><p>ranelaghmedcentre@gmail.com</p></li> 
-                </ul>
-            </div>
+                <div class = "bottom col-md-3 col-xs-6">
+                    <h3>CONTACT US</h3>
+                    <P>Feel free to get in touch. Either pop into us at our location, phone us, or you can email us.</P>
+                    <p>84 Ranelagh Road, Ranelagh, D6</p>
+                    <p>Phone: 0871234567</p>
+                    <p>ranelaghmedcentre@gmail.com</p>
+                </div>
 
-            <div class = "bottom col-md-3 col-xs-6">
-                <h3>JOIN OUR MAILING LIST</h3>
-                <p>Enter you email address to keep up to date with new membership offers.</p>
-                <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                <div class = "bottom col-md-3 col-xs-6">
+                        <h3>JOIN OUR MAILING LIST</h3>
+                        <p>Enter you email address to keep up to date with new membership offers.</p>
+                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                </div>
             </div>
         </div>
     
         <div class="row">
-            <div class = "footerBar col-md-6 col-xs-6">
+            <div class = "footerBar col-md-12 col-xs-12">
                 <p>© Ranelagh Medical Centre. All rights reserved.</p>
             </div>
-
-            <div class = "footerBar col-md-6  col-xs-6">
-                <ul class="footerBar navbar-nav">
-                    <li>Home</li>
-                    <li>Our Team</li>
-                    <li>Services</li>
-                    <li>Book</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
         </div>
+        <!-- javascript -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+        $('a.btn-info').tooltip()
+        </script>
     </body>
 </html>
