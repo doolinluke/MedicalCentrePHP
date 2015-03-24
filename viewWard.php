@@ -160,10 +160,11 @@ $patients = $patientGateway->getPatientsByWardId($id);
                                 echo '<td>' . $row['email'] . '</td>';
                                 echo '<td>' . $row['dob'] . '</td>';
                                 echo '<td>' . $row['dateAdmitted'] . '</td>';
+                                echo '<td>' . $row['wardName'] . '</td>';
                                 echo '<td>'
-                                . '<a href="viewPatient.php?id=' . $row['patientID'] . '">View</a> '
-                                . '<a href="editPatientForm.php?id=' . $row['patientID'] . '">Edit</a> '
-                                . '<a class="deletePatient" href="deleteProgrammer.php?id=' . $row['patientID'] . '">Delete</a> '
+                                . '<a class="btn btn-view btn-xs" href="viewPatient.php?id=' . $row['patientID'] . '">View</a> '
+                                . '<a class="btn btn-edit btn-xs" href="editPatientForm.php?id=' . $row['patientID'] . '">Edit</a> '
+                                . '<a class="deletePatient" href="deletePatient.php?id=' . $row['patientID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
                                 . '</td>';
                                 echo '</tr>';
 
