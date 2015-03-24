@@ -1,4 +1,4 @@
- <?php
+<?php
 require_once 'Patient.php';
 require_once 'Connection.php';
 require_once 'PatientTableGateway.php';
@@ -18,7 +18,8 @@ $id = $_GET['id'];
 $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
-$statement = $gateway->getPatientById($id);
+
+$statement = $gateway->getPatients();
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,9 +51,9 @@ $statement = $gateway->getPatientById($id);
                     </div>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="glyphicon glyphicon-arrow-down"></span>
-                          MENU
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
@@ -78,7 +79,7 @@ $statement = $gateway->getPatientById($id);
 
                 <div class = "options col-md-3 col-xs-6">
                     <center>
-                        <p><img src="img/ward2.png" alt="" class="img-responsive"></p>
+                        <a href="viewWards.php"><img src="img/ward2.png" alt="" class="img-responsive"></a>
                         <h4>Wards</h4>
                     </center>
                 </div>
@@ -99,54 +100,53 @@ $statement = $gateway->getPatientById($id);
             </div>
         </div>
         <div class="container">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-responsive">
                 <tbody>
                     <?php
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
-                        echo '<tr>';
-                        echo '<th>Patient ID</th>'
-                        . '<td>' . $row['patientID'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>First Name</th>'
-                        . '<td>' . $row['fName'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Last Name</th>'
-                        . '<td>' . $row['lName'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Address</th>'
-                        . '<td>' . $row['address'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Phone Number</th>'
-                        . '<td>' . $row['phoneNumber'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Email</th>'
-                        . '<td>' . $row['email'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Date of Birth</th>'
-                        . '<td>' . $row['dob'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Date Admitted</th>'
-                        . '<td>' . $row['dateAdmitted'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Ward ID</th>'
-                        . '<td>' . $row['wardID'] . '</td>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<th>Options</th>'
-                        . '<td>'
-                        . '<a class="btn btn-edit btn-xs" href="editPatientForm.php?id='.$row['patientID'].'">Edit</a> '                       
-                        . '<a class="deletePatient" href="deletePatient.php?id=' . $row['patientID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
-                        . '</td>';
-                        '</tr>';
-                   ?>
+                    echo '<tr>';
+                    echo '<th>Patient ID</th>'
+                    . '<td>' . $row['patientID'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>First Name</th>'
+                    . '<td>' . $row['fName'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>Last Name</th>'
+                    . '<td>' . $row['lName'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>Address</th>'
+                    . '<td>' . $row['address'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>Phone Number</th>'
+                    . '<td>' . $row['phoneNumber'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>Email</th>'
+                    . '<td>' . $row['email'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>Date of Birth</th>'
+                    . '<td>' . $row['dob'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>Date Admitted</th>'
+                    . '<td>' . $row['dateAdmitted'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<th>Ward</th>'
+                    . '<td>' . $row['wardName'] . '</td>';
+                    echo '</tr>';
+                    echo '<th>Options</th>'
+                    . '<td>'
+                    . '<a class="btn btn-edit btn-xs" href="editPatientForm.php?id=' . $row['patientID'] . '">Edit</a> '
+                    . '<a class="deletePatient" href="deletePatient.php?id=' . $row['patientID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
+                    . '</td>';
+                    '</tr>';
+                    ?>
                 </tbody>
             </table>
         </div>
@@ -175,10 +175,10 @@ $statement = $gateway->getPatientById($id);
                     </div>
 
                     <div class = "bottom col-md-3 col-xs-6">
-                            <h3>JOIN OUR MAILING LIST</h3>
-                            <p>Enter you email address to keep up to date with new membership offers.</p>
-                            <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                            <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                        <h3>JOIN OUR MAILING LIST</h3>
+                        <p>Enter you email address to keep up to date with new membership offers.</p>
+                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
                     </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@ $statement = $gateway->getPatientById($id);
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-        $('a.btn-info').tooltip()
+            $('a.btn-info').tooltip()
         </script>
     </body>
 </html>

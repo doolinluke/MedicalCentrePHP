@@ -167,18 +167,18 @@ $statement = $gateway->getPatients();
         </div>
     </div>
     
-    <div class="row2 col-lg-12">
-        <div class="container">
-            <div class="tour col-lg-12">
-                <center>
-                <h1>Want to see our home?</h1>
-                <p>Click here to take a tour of our award winning facilities and see where thousands 
-                of happy members come for the best medical care available.</p>
-                <a class="btn btn-primary btn-large" href="#">Take a Tour</a>
-                </center>
+        <div class="row2 col-lg-12">
+            <div class="container">
+                <div class="tour col-lg-12">
+                    <center>
+                        <h1>Want to see our home?</h1>
+                        <p>Click here to take a tour of our award winning facilities and see where thousands 
+                            of happy members come for the best medical care available.</p>
+                        <a class="btn btn-primary btn-large" href="#">Take a Tour</a>
+                    </center>
+                </div>
             </div>
         </div>
-    </div>
     <div class="footerGroup">
         <div class = "row">
             <div class="row3">

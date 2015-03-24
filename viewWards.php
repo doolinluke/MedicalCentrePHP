@@ -14,7 +14,7 @@ $wards = $wardGateway->getWards();
     <head>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
         <meta charset="UTF-8">
-        <script type="text/javascript" src="Javascript/patient.js"></script>
+        <script type="text/javascript" src="Javascript/ward.js"></script>
         <title>Medical Centre</title>
         <meta charset="utf-8">  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,9 +39,9 @@ $wards = $wardGateway->getWards();
                     </div>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="glyphicon glyphicon-arrow-down"></span>
-                          MENU
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
@@ -56,7 +56,7 @@ $wards = $wardGateway->getWards();
                 </div>
             </nav> 
         </div>
-        
+
         <div class = "row">
             <div class="container">
                 <div class = "options col-md-3 col-xs-6">
@@ -88,9 +88,15 @@ $wards = $wardGateway->getWards();
                 </div>
             </div>
         </div>
-        
+
+        <div class="welcome">
+            <div class="container">
+                <h1>Wards</h1>
+            </div>
+        </div>
+
         <div class="container">
-            <table class="table table-bordered">
+            <table class="table table-bordered table-responsive">
                 <thead>
                     <tr>
                         <th>Ward Name</th>
@@ -109,8 +115,8 @@ $wards = $wardGateway->getWards();
                         echo '<td>' . $row['numberBeds'] . '</td>';
                         echo '<td>' . $row['headNurse'] . '</td>';
                         echo '<td>'
-                        . '<a class="btn btn-view btn-xs" href="viewWard.php?id='.$row['wardID'].'">View</a> '
-                        . '<a class="btn btn-edit btn-xs" href="editWardForm.php?id='.$row['wardID'].'">Edit</a> '                       
+                        . '<a class="btn btn-view btn-xs" href="viewWard.php?id=' . $row['wardID'] . '">View</a> '
+                        . '<a class="btn btn-edit btn-xs" href="editWardForm.php?id=' . $row['wardID'] . '">Edit</a> '
                         . '<a class="deletePatient" href="deleteWard.php?id=' . $row['wardID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
                         . '</td>';
                         echo '</tr>';
@@ -121,7 +127,7 @@ $wards = $wardGateway->getWards();
                 </tbody>
             </table>
         </div>
-        
+
         <div class="row">
             <div class="createButton">
                 <div class="container">
@@ -129,49 +135,49 @@ $wards = $wardGateway->getWards();
                 </div>
             </div>
         </div>
-        
+
         <div class="footerGroup">
-        <div class = "row">
-            <div class="row3">
-                <div class = "bottom col-md-3 col-xs-6">
-                    <ul class="footer navbar-nav">
-                        <h3>FIND US HERE</h3>
-                        <li><img src="img/fbicon.png" alt="" class="img-responsive"></li>                    
-                    </ul>
-                </div>
+            <div class = "row">
+                <div class="row3">
+                    <div class = "bottom col-md-3 col-xs-6">
+                        <ul class="footer navbar-nav">
+                            <h3>FIND US HERE</h3>
+                            <li><img src="img/fbicon.png" alt="" class="img-responsive"></li>                    
+                        </ul>
+                    </div>
 
-                <div class = "bottom col-md-3 col-xs-6">
-                    <h3>SEE OUR ENDORSEMENTS</h3>
-                    <p>Click here to read reviews from satisfied members as well as professional endorsements and testimonials from highly regarded medical professionals.</p>
-                </div>
+                    <div class = "bottom col-md-3 col-xs-6">
+                        <h3>SEE OUR ENDORSEMENTS</h3>
+                        <p>Click here to read reviews from satisfied members as well as professional endorsements and testimonials from highly regarded medical professionals.</p>
+                    </div>
 
-                <div class = "bottom col-md-3 col-xs-6">
-                    <h3>CONTACT US</h3>
-                    <P>Feel free to get in touch. Either pop into us at our location, phone us, or you can email us.</P>
-                    <p>84 Ranelagh Road, Ranelagh, D6</p>
-                    <p>Phone: 0871234567</p>
-                    <p>ranelaghmedcentre@gmail.com</p>
-                </div>
+                    <div class = "bottom col-md-3 col-xs-6">
+                        <h3>CONTACT US</h3>
+                        <P>Feel free to get in touch. Either pop into us at our location, phone us, or you can email us.</P>
+                        <p>84 Ranelagh Road, Ranelagh, D6</p>
+                        <p>Phone: 0871234567</p>
+                        <p>ranelaghmedcentre@gmail.com</p>
+                    </div>
 
-                <div class = "bottom col-md-3 col-xs-6">
+                    <div class = "bottom col-md-3 col-xs-6">
                         <h3>JOIN OUR MAILING LIST</h3>
                         <p>Enter you email address to keep up to date with new membership offers.</p>
                         <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
                         <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class = "footerBar col-md-12 col-xs-12">
-                <p>© Ranelagh Medical Centre. All rights reserved.</p>
-            </div>
+            <div class="row">
+                <div class = "footerBar col-md-12 col-xs-12">
+                    <p>© Ranelagh Medical Centre. All rights reserved.</p>
+                </div>
             </div>
         </div>
         <!-- javascript -->
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-        $('a.btn-info').tooltip()
+            $('a.btn-info').tooltip()
         </script>
     </body>
 </html>

@@ -73,7 +73,7 @@ $wards = $wardGateway->getWards();
 
                 <div class = "options col-md-3 col-xs-6">
                     <center>
-                        <p><img src="img/ward2.png" alt="" class="img-responsive"></p>
+                        <a href="viewWards.php"><img src="img/ward2.png" alt="" class="img-responsive"></a>
                         <h4>Wards</h4>
                     </center>
                 </div>

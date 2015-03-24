@@ -29,16 +29,16 @@ if (!isset($_SESSION['events'])) {
 <!DOCTYPE html>
 <html>
     <head>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
-    <meta charset="UTF-8">
-    <script type="text/javascript" src="Javascript/patient.js"></script>
-    <title>Medical Centre</title>
-    <meta charset="utf-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <script src="js/respond.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="Javascript/patient.js"></script>
+        <title>Medical Centre</title>
+        <meta charset="utf-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/custom.css" rel="stylesheet">
+        <script src="js/respond.js"></script>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
@@ -50,9 +50,9 @@ if (!isset($_SESSION['events'])) {
                     </div>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="glyphicon glyphicon-arrow-down"></span>
-                          MENU
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
@@ -79,12 +79,12 @@ if (!isset($_SESSION['events'])) {
                 </div>
             </div>
         </div>
-        <?php 
+        <?php
         if (isset($message)) {
-            echo '<p>'.$message.'</p>';
+            echo '<p>' . $message . '</p>';
         }
         ?>
-        
+
         <div class = "row">
             <div class="container">
                 <div class = "options col-md-3 col-xs-6">
@@ -116,9 +116,9 @@ if (!isset($_SESSION['events'])) {
                 </div>
             </div>
         </div>
-                            
+
         <div class="container">
-            <table class="table table-bordered table-striped">           
+            <table class="table table-bordered table-striped table-responsive">           
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -147,10 +147,10 @@ if (!isset($_SESSION['events'])) {
                         echo '<td>' . $row['email'] . '</td>';
                         echo '<td>' . $row['dob'] . '</td>';
                         echo '<td>' . $row['dateAdmitted'] . '</td>';
-                        echo '<td>' . $row['wardID'] . '</td>';
+                        echo '<td>' . $row['wardName'] . '</td>';
                         echo '<td>'
-                        . '<a class="btn btn-view btn-xs" href="viewPatient.php?id='.$row['patientID'].'">View</a> '
-                        . '<a class="btn btn-edit btn-xs" href="editPatientForm.php?id='.$row['patientID'].'">Edit</a> '                       
+                        . '<a class="btn btn-view btn-xs" href="viewPatient.php?id=' . $row['patientID'] . '">View</a> '
+                        . '<a class="btn btn-edit btn-xs" href="editPatientForm.php?id=' . $row['patientID'] . '">Edit</a> '
                         . '<a class="deletePatient" href="deletePatient.php?id=' . $row['patientID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
                         . '</td>';
                         echo '</tr>';
@@ -169,7 +169,7 @@ if (!isset($_SESSION['events'])) {
                 </div>
             </div>
         </div>
-        
+
         <div class = "row">
             <div class="row3">
                 <div class = "bottom col-md-3 col-xs-6">
@@ -193,10 +193,10 @@ if (!isset($_SESSION['events'])) {
                 </div>
 
                 <div class = "bottom col-md-3 col-xs-6">
-                        <h3>JOIN OUR MAILING LIST</h3>
-                        <p>Enter you email address to keep up to date with new membership offers.</p>
-                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                    <h3>JOIN OUR MAILING LIST</h3>
+                    <p>Enter you email address to keep up to date with new membership offers.</p>
+                    <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                    <a class="btn btn-primary btn-large" href="#">Subscribe</a>
                 </div>
             </div>
         </div>

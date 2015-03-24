@@ -3,75 +3,74 @@
 class PatientTableGateway {
 
     private $connection;
-    
+
     public function __construct($c) {
         $this->connection = $c;
     }
-    
+
     public function getPatients() {
         // execute a query to get all patients
-        $sqlQuery = "SELECT * FROM patient";
-                    "SELECT p.*, w.wardName AS wardName
+        $sqlQuery = "SELECT p.*, w.wardName AS wardName
                     FROM patient p
                     LEFT JOIN ward w ON w.wardID = p.wardID";
-        
+
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
-        
+
         if (!$status) {
             die("Could not retrieve patients");
         }
-        
+
         return $statement;
     }
-    
+
     public function getPatientsByWardId($wardID) {
         // execute a query to get the user with the specified id
-        $sqlQuery = "SELECT * FROM patient, w.wardName AS wardName
-                    FROM patients p 
-                    LEFT JOIN wards w ON w.id = p.wardID
+        $sqlQuery = "SELECT p.*, w.wardName AS wardName
+                    FROM patient p 
+                    LEFT JOIN ward w ON w.wardID = p.wardID
                     WHERE w.wardID = :wardID";
-        
+
         $params = array(
             "wardID" => $wardID
         );
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute($params);
-        
+
         if (!$status) {
-            die("Could not retrieve user");
+            die("Could not retrieve Ward");
         }
-        
+
         return $statement;
     }
-    
+
     public function getPatientById($patientID) {
         // execute a query to get the user with the specified id
         $sqlQuery = "SELECT * FROM patient WHERE patientID = :id";
-        
+
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
             "id" => $patientID
         );
-        
+
         $status = $statement->execute($params);
-        
+
         if (!$status) {
             die("Could not retrieve user");
         }
-        
+
         return $statement;
     }
-    
+
     public function insertPatient($fN, $lN, $a, $pN, $e, $d, $dA, $wID) {
         $sqlQuery = "INSERT INTO patient " .
                 "(fName, lName, address, phoneNumber, email, dob, dateAdmitted, wardID) " .
                 "VALUES (:fName, :lName, :address, :phoneNumber, :email, :dob, :dateAdmitted, :wardID)";
-        
+
         if ($wID == -1) {
             $wID = NULL;
         }
-        
+
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
             "fName" => $fN,
@@ -83,23 +82,23 @@ class PatientTableGateway {
             "dateAdmitted" => $dA,
             "wardID" => $wID
         );
-         echo '<pre>';
+        echo '<pre>';
         print_r($sqlQuery);
         print_r($params);
         print_r($_POST);
         echo '</pre>';
-        
+
         $status = $statement->execute($params);
-        
+
         if (!$status) {
             die("Could not create patient");
         }
-        
+
         $id = $this->connection->lastInsertId();
-        
+
         return $id;
     }
-    
+
     public function deletePatient($id) {
         $sqlQuery = "DELETE FROM patient WHERE patientID = :patientID";
 
@@ -116,10 +115,9 @@ class PatientTableGateway {
 
         return ($statement->rowCount() == 1);
     }
-    
+
     public function updatePatient($pID, $fN, $lN, $a, $pN, $e, $d, $dA, $wID) {
-        $sqlQuery =
-                "UPDATE patient SET " .
+        $sqlQuery = "UPDATE patient SET " .
                 "fName = :firstName, " .
                 "lName = :lastName, " .
                 "address = :address, " .
@@ -129,7 +127,7 @@ class PatientTableGateway {
                 "dateAdmitted = :dateAdmitted, " .
                 "wardID = :wardID " .
                 "WHERE patientID = :patientID";
-        
+
         echo '<pre>';
         print_r($sqlQuery);
         echo '</pre>';
@@ -151,5 +149,5 @@ class PatientTableGateway {
 
         return ($statement->rowCount() == 1);
     }
-}
 
+}

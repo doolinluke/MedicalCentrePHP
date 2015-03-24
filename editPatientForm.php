@@ -54,9 +54,9 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
                     </div>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="glyphicon glyphicon-arrow-down"></span>
-                          MENU
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
@@ -71,7 +71,7 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
                 </div>
             </nav> 
         </div>
-        
+
         <div class = "row">
             <div class="container">
                 <div class = "options col-md-3 col-xs-6">
@@ -103,163 +103,166 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
-        
+
         <div class="container">
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                    <td>First Name</td>
-                        <td>
-                            <input type="text" name="fName" value="<?php
+            <form id="editPatientForm" name="editProgrammerForm" action="editPatient.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $id; ?>" />
+                <table class="table table-bordered table-responsive">
+                    <tbody>
+                        <tr>
+                            <td>First Name</td>
+                            <td>
+                                <input type="text" name="fName" value="<?php
                                 if (isset($_POST) && isset($_POST['fName'])) {
                                     echo $_POST['fName'];
-                                }
-                                else echo $row['fName']
-                            ?>" />
-                               <span id="fNameError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['fName'])) {
-                                    echo $errorMessage['fName'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                    <td>Second Name</td>
-                        <td>
-                            <input type="text" name="lName" value="<?php
+                                } else
+                                    echo $row['fName']
+                                    ?>" />
+                                <span id="fNameError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['fName'])) {
+                                        echo $errorMessage['fName'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Second Name</td>
+                            <td>
+                                <input type="text" name="lName" value="<?php
                                 if (isset($_POST) && isset($_POST['lName'])) {
                                     echo $_POST['lName'];
-                                }
-                                else echo $row['lName']
-                            ?>" />
-                               <span id="lNameError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['lName'])) {
-                                    echo $errorMessage['lName'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Address</td>
-                        <td>
-                            <input type="text" name="address" value="<?php
+                                } else
+                                    echo $row['lName']
+                                    ?>" />
+                                <span id="lNameError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['lName'])) {
+                                        echo $errorMessage['lName'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>
+                                <input type="text" name="address" value="<?php
                                 if (isset($_POST) && isset($_POST['address'])) {
                                     echo $_POST['address'];
-                                }
-                                else echo $row['address']
-                            ?>" />
-                            <span id="addressError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['address'])) {
-                                    echo $errorMessage['address'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Phone Number</td>
-                        <td>
-                            <input type="text" name="phoneNumber" value="<?php
+                                } else
+                                    echo $row['address']
+                                    ?>" />
+                                <span id="addressError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['address'])) {
+                                        echo $errorMessage['address'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number</td>
+                            <td>
+                                <input type="text" name="phoneNumber" value="<?php
                                 if (isset($_POST) && isset($_POST['phoneNumber'])) {
                                     echo $_POST['phoneNumber'];
-                                }
-                                else echo $row['phoneNumber']
-                            ?>" />
-                            <span id="phoneNumberError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['phoneNumber'])) {
-                                    echo $errorMessage['phoneNumber'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>
-                            <input type="text" name="email" value="<?php
+                                } else
+                                    echo $row['phoneNumber']
+                                    ?>" />
+                                <span id="phoneNumberError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['phoneNumber'])) {
+                                        echo $errorMessage['phoneNumber'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>
+                                <input type="text" name="email" value="<?php
                                 if (isset($_POST) && isset($_POST['email'])) {
                                     echo $_POST['email'];
-                                }
-                                else echo $row['email']
-                            ?>" />
-                            <span id="emailError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['email'])) {
-                                    echo $errorMessage['email'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Date of Birth</td>
-                        <td>
-                            <input type="text" name="dob" value="<?php
+                                } else
+                                    echo $row['email']
+                                    ?>" />
+                                <span id="emailError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['email'])) {
+                                        echo $errorMessage['email'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>
+                                <input type="text" name="dob" value="<?php
                                 if (isset($_POST) && isset($_POST['dob'])) {
                                     echo $_POST['dob'];
-                                }
-                                else echo $row['dob']
-                            ?>" />
-                            <span id="dobError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['dob'])) {
-                                    echo $errorMessage['dob'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Date Admitted</td>
-                        <td>
-                            <input type="text" name="dateAdmitted" value="<?php
+                                } else
+                                    echo $row['dob']
+                                    ?>" />
+                                <span id="dobError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['dob'])) {
+                                        echo $errorMessage['dob'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date Admitted</td>
+                            <td>
+                                <input type="text" name="dateAdmitted" value="<?php
                                 if (isset($_POST) && isset($_POST['dateAdmitted'])) {
                                     echo $_POST['dateAdmitted'];
-                                }
-                                else echo $row['dateAdmitted']
-                            ?>" />
-                            <span id="dateAdmittedError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['dateAdmitted'])) {
-                                    echo $errorMessage['dateAdmitted'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ward ID</td>
-                        <td>
-                            <input type="text" name="wardID" value="<?php
+                                } else
+                                    echo $row['dateAdmitted']
+                                    ?>" />
+                                <span id="dateAdmittedError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['dateAdmitted'])) {
+                                        echo $errorMessage['dateAdmitted'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ward ID</td>
+                            <td>
+                                <input type="text" name="wardID" value="<?php
                                 if (isset($_POST) && isset($_POST['wardID'])) {
                                     echo $_POST['wardID'];
-                                }
-                                else echo $row['wardID']
-                            ?>" />
-                            <span id="wardIDError" class="error">
-                                <?php
-                                if (isset($errorMessage) && isset($errorMessage['wardID'])) {
-                                    echo $errorMessage['wardID'];
-                                }
-                                ?>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" value="Update Patient" name="updatePatient" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                                } else
+                                    echo $row['wardID']
+                                    ?>" />
+                                <span id="wardIDError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['wardID'])) {
+                                        echo $errorMessage['wardID'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Update Patient" name="updatePatient" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
         <div class="footerGroup navbar-fixed-bottom">
             <div class = "row">
@@ -285,10 +288,10 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
                     </div>
 
                     <div class = "bottom col-md-3 col-xs-6">
-                            <h3>JOIN OUR MAILING LIST</h3>
-                            <p>Enter you email address to keep up to date with new membership offers.</p>
-                            <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                            <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                        <h3>JOIN OUR MAILING LIST</h3>
+                        <p>Enter you email address to keep up to date with new membership offers.</p>
+                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
                     </div>
                 </div>
             </div>
@@ -302,7 +305,7 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-        $('a.btn-info').tooltip()
+            $('a.btn-info').tooltip()
         </script>
     </body>
 </html>

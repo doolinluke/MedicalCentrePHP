@@ -63,7 +63,7 @@ class WardTableGateway {
         return $id;
     }
 
-        public function deleteWard($wardID) {
+    public function deleteWard($wardID) {
         $sqlQuery = "DELETE FROM ward WHERE wardID = :wardID";
 
         $statement = $this->connection->prepare($sqlQuery);
@@ -81,8 +81,7 @@ class WardTableGateway {
     }
 
     public function updateWard($wardID, $n, $nb, $hn) {
-        $sqlQuery =
-                "UPDATE ward SET " .
+        $sqlQuery = "UPDATE ward SET " .
                 "wardName = :wardName, " .
                 "numberBeds = :numberBeds, " .
                 "headNurse = :headNurse " .
@@ -100,4 +99,5 @@ class WardTableGateway {
 
         return ($statement->rowCount() == 1);
     }
+
 }

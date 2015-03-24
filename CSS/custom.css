@@ -75,7 +75,7 @@ h4 {
     color: #969696;
     font-weight: bold;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 140px;
 }
 
 .bio p {
@@ -165,6 +165,7 @@ h4 {
 .options {
     font-family: Lato, sans-serif;
     color: #969696;
+    margin-top: 50px;
 }
 
 .options h4 {
@@ -515,7 +516,7 @@ row3 {
 .btn-logout:active,
 .btn-logout:focus
 {
-    background-color: #00bc9c !important;
+    background-color: #3ca3ca !important;
 }
 
 .carousel-inner > .item > img,
@@ -524,3 +525,13 @@ row3 {
     margin: auto;
 }
 
+.btn-create {
+    background-color: #3ca3ca;
+}
+
+.btn-create:hover,
+.btn-create:active,
+.btn-create:focus
+{
+    background-color: #00bc9c !important;
+}

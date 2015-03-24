@@ -20,5 +20,5 @@ $gateway = new WardTableGateway($connection);
 
 $gateway->deleteWard($id);
 
-header("Location: home.php");
+header("Location: viewWards.php");
 ?>

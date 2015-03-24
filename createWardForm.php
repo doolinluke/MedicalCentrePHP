@@ -45,9 +45,9 @@ $wards = $wardGateway->getWards();
                     </div>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="glyphicon glyphicon-arrow-down"></span>
-                          MENU
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
@@ -96,76 +96,71 @@ $wards = $wardGateway->getWards();
         <div class = "row">
             <div class="welcome">
                 <div class="container">
-                    <h1>Create New Patient</h1>
+                    <h1>Create New Ward</h1>
                 </div>
             </div>
         </div>
         <form action="createWard.php" method="POST" id="createWardForm">
             <div class="container">
                 <table class="table table-bordered">                
-                        <tbody>
-                            <tr>
-                                <td>Ward Name</td>
-                                <td>
-                                    <input type="text" name="wardName" value="<?php
-                                        if (isset($_POST) && isset($_POST['wardName'])) {
-                                            echo $_POST['wardName'];
-                                        }
-                                    ?>" />
-                                    <span id="wardNameError" class="error">
-                                        <?php
-                                        if (isset($errorMessage) && isset($errorMessage['wardNameError'])) {
-                                            echo $errorMessage['wardNameError'];
-                                        }
-                                        ?>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Number Beds</td>
-                                <td>
-                                    <input type="text" name="numberBeds" value="<?php
-                                        if (isset($_POST) && isset($_POST['numberBeds'])) {
-                                            echo $_POST['numberBeds'];
-                                        }
-                                    ?>" />
-                                    <span id="numberBedsError" class="error">
-                                        <?php
-                                        if (isset($errorMessage) && isset($errorMessage['numberBeds'])) {
-                                            echo $errorMessage['numberBeds'];
-                                        }
-                                        ?>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Head Nurse</td>
-                                <td>
-                                    <input type="text" name="headNurse" value="<?php
-                                        if (isset($_POST) && isset($_POST['headNurse'])) {
-                                            echo $_POST['headNurse'];
-                                        }
-                                    ?>" />
-                                    <span id="headNurseError" class="error">
-                                        <?php
-                                        if (isset($errorMessage) && isset($errorMessage['headNurse'])) {
-                                            echo $errorMessage['headNurse'];
-                                        }
-                                        ?>
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input type="submit" class="btn btn-info" value="Submit">
-                                </td>
-                            </tr>
-                        </tbody>
+                    <tbody>
+                        <tr>
+                            <td>Ward Name</td>
+                            <td>
+                                <input type="text" name="wardName" value="<?php
+                                if (isset($_POST) && isset($_POST['wardName'])) {
+                                    echo $_POST['wardName'];
+                                }
+                                ?>" />
+                                <span id="wardNameError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['wardNameError'])) {
+                                        echo $errorMessage['wardNameError'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Number Beds</td>
+                            <td>
+                                <input type="text" name="numberBeds" value="<?php
+                                if (isset($_POST) && isset($_POST['numberBeds'])) {
+                                    echo $_POST['numberBeds'];
+                                }
+                                ?>" />
+                                <span id="numberBedsError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['numberBeds'])) {
+                                        echo $errorMessage['numberBeds'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Head Nurse</td>
+                            <td>
+                                <input type="text" name="headNurse" value="<?php
+                                if (isset($_POST) && isset($_POST['headNurse'])) {
+                                    echo $_POST['headNurse'];
+                                }
+                                ?>" />
+                                <span id="headNurseError" class="error">
+                                    <?php
+                                    if (isset($errorMessage) && isset($errorMessage['headNurse'])) {
+                                        echo $errorMessage['headNurse'];
+                                    }
+                                    ?>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
+                <input type="submit" class="btn btn-create" value="Submit">
             </div>
         </form>
-       
+
         <div class = "row">
             <div class="row3">
                 <div class = "bottom col-md-3 col-xs-6">
@@ -189,14 +184,14 @@ $wards = $wardGateway->getWards();
                 </div>
 
                 <div class = "bottom col-md-3 col-xs-6">
-                        <h3>JOIN OUR MAILING LIST</h3>
-                        <p>Enter you email address to keep up to date with new membership offers.</p>
-                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                    <h3>JOIN OUR MAILING LIST</h3>
+                    <p>Enter you email address to keep up to date with new membership offers.</p>
+                    <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                    <a class="btn btn-primary btn-large" href="#">Subscribe</a>
                 </div>
             </div>
         </div>
-    
+
         <div class="row">
             <div class = "footerBar col-md-12 col-xs-12">
                 <p>© Ranelagh Medical Centre. All rights reserved.</p>
@@ -206,7 +201,7 @@ $wards = $wardGateway->getWards();
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-        $('a.btn-info').tooltip()
+            $('a.btn-info').tooltip()
         </script>
     </body>
 </html>

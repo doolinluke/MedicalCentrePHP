@@ -38,7 +38,7 @@ if ($headNurse === FALSE || $address === '') {
 
 $wardID = $gateway->insertWard($wardName, $numberBeds, $headNurse);
 $message = "New Ward Created";
-header("Location: home.php");
+header("Location: viewWards.php");
  
 
 
