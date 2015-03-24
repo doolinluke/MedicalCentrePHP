@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Ward.php';
 require_once 'Connection.php';
 require_once 'WardTableGateway.php';

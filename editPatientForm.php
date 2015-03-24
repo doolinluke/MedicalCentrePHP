@@ -2,6 +2,7 @@
 require_once 'Patient.php';
 require_once 'Connection.php';
 require_once 'PatientTableGateway.php';
+require_once 'WardTableGateway.php';
 
 $id = session_id();
 if ($id == "") {
@@ -17,6 +18,10 @@ $id = $_GET['id'];
 
 $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
+
+$wardGateway = new WardTableGateway($connection);
+
+$wards = $wardGateway->getWards();
 
 $statement = $gateway->getPatientById($id);
 if ($statement->rowCount() !== 1) {
@@ -105,7 +110,7 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
         </div>
 
         <div class="container">
-            <form id="editPatientForm" name="editProgrammerForm" action="editPatient.php" method="POST">
+            <form id="editPatientForm" name="editPatientForm" action="editPatient.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $id; ?>" />
                 <table class="table table-bordered table-responsive">
                     <tbody>
@@ -236,21 +241,17 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
                             </td>
                         </tr>
                         <tr>
-                            <td>Ward ID</td>
+                            <td>Ward</td>
                             <td>
-                                <input type="text" name="wardID" value="<?php
-                                if (isset($_POST) && isset($_POST['wardID'])) {
-                                    echo $_POST['wardID'];
-                                } else
-                                    echo $row['wardID']
-                                    ?>" />
-                                <span id="wardIDError" class="error">
+                                <select name="wardID">
+                                    <option value="-1">No Ward</option>
                                     <?php
-                                    if (isset($errorMessage) && isset($errorMessage['wardID'])) {
-                                        echo $errorMessage['wardID'];
+                                    $w = $wards->fetch(PDO::FETCH_ASSOC);
+                                    while ($w) {
+                                        echo '<option value="' . $w['wardID'] . '">' . $w['wardName'] . '</option>';
+                                        $w = $wards->fetch(PDO::FETCH_ASSOC);
                                     }
                                     ?>
-                                </span>
                             </td>
                         </tr>
                         <tr>
@@ -264,7 +265,7 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
                 </table>
             </form>
         </div>
-        <div class="footerGroup navbar-fixed-bottom">
+        <div class="footerGroup navbar">
             <div class = "row">
                 <div class="row3">
                     <div class = "bottom col-md-3 col-xs-6">

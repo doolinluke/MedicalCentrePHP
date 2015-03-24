@@ -11,38 +11,38 @@
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
     </head>
     <body>
-    <div class="row"> 
-        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="row"> 
+            <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <p><img src="img/newlogo.png" alt="" class="img-responsive"></p>
+                    </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Home</a></li>                    
+                            <li><a href="#">Services</a></li> 
+                            <li><a href="#">Book</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a class="btn btn-register btn-large" href="register.php">Register</a></li>
+                        </ul> 
+                    </div>
+                </div>
+            </nav> 
+        </div>
+        <div class="row">
             <div class="container">
-                <div class="navbar-brand">
-                    <p><img src="img/newlogo.png" alt="" class="img-responsive"></p>
+                <div class ="logIn">
+                    <h1>Please Login</h1>
                 </div>
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="glyphicon glyphicon-arrow-down"></span>
-                      MENU
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Home</a></li>                    
-                        <li><a href="#">Services</a></li> 
-                        <li><a href="#">Book</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a class="btn btn-register btn-large" href="register.php">Register</a></li>
-                    </ul> 
-                </div>
-            </div>
-        </nav> 
-    </div>
-    <div class="row">
-        <div class="container">
-            <div class ="logIn">
-                <h1>Please Login</h1>
             </div>
         </div>
-    </div>
         <?php
         if (!isset($username)) {
             $username = '';
@@ -122,10 +122,10 @@
                     </div>
 
                     <div class = "bottom col-md-3 col-xs-6">
-                            <h3>JOIN OUR MAILING LIST</h3>
-                            <p>Enter you email address to keep up to date with new membership offers.</p>
-                            <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                            <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                        <h3>JOIN OUR MAILING LIST</h3>
+                        <p>Enter you email address to keep up to date with new membership offers.</p>
+                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
                     </div>
                 </div>
             </div>
@@ -139,7 +139,7 @@
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-        $('a.btn-info').tooltip()
+                                               $('a.btn-info').tooltip()
         </script>
     </body>
 </html>

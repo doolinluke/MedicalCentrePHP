@@ -19,9 +19,9 @@
                     </div>
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse">
-                          <span class="sr-only">Toggle navigation</span>
-                          <span class="glyphicon glyphicon-arrow-down"></span>
-                          MENU
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            MENU
                         </button>
                     </div>
                     <div class="collapse navbar-collapse" id="collapse">
@@ -51,11 +51,11 @@
                         <tr>
                             <td>Username</td>
                             <td>
-                                    <input type="text" name="username" value="<?php
-                                        if (isset($_POST) && isset($_POST['username'])) {
-                                            echo $_POST['username'];
-                                        }
-                                    ?>" />
+                                <input type="text" name="username" value="<?php
+                                if (isset($_POST) && isset($_POST['username'])) {
+                                    echo $_POST['username'];
+                                }
+                                ?>" />
                                 <span id="usernameError" class="error">
                                     <?php
                                     if (isset($errorMessage) && isset($errorMessage['username'])) {
@@ -69,9 +69,9 @@
                             <td>Password</td>
                             <td>
                                 <input type="password" name="password" value="<?php
-                                    if (isset($_POST) && isset($_POST['password'])) {
-                                        echo $_POST['password'];
-                                    }
+                                if (isset($_POST) && isset($_POST['password'])) {
+                                    echo $_POST['password'];
+                                }
                                 ?>" />
                                 <span id="passwordError" class="error">
                                     <?php
@@ -86,9 +86,9 @@
                             <td>Confirm Password</td>
                             <td>
                                 <input type="password" name="password2" value="<?php
-                                    if (isset($_POST) && isset($_POST['password2'])) {
-                                        echo $_POST['password2'];
-                                    }
+                                if (isset($_POST) && isset($_POST['password2'])) {
+                                    echo $_POST['password2'];
+                                }
                                 ?>" />
                                 <span id="password2Error" class="error">
                                     <?php
@@ -133,10 +133,10 @@
                     </div>
 
                     <div class = "bottom col-md-3 col-xs-6">
-                            <h3>JOIN OUR MAILING LIST</h3>
-                            <p>Enter you email address to keep up to date with new membership offers.</p>
-                            <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
-                            <a class="btn btn-primary btn-large" href="#">Subscribe</a>
+                        <h3>JOIN OUR MAILING LIST</h3>
+                        <p>Enter you email address to keep up to date with new membership offers.</p>
+                        <input type="email" id="form_email" name="form[email]" required="required" placeholder="Enter your email address">
+                        <a class="btn btn-primary btn-large" href="#">Subscribe</a>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-        $('a.btn-info').tooltip()
+            $('a.btn-info').tooltip()
         </script>
     </body>
 </html>

@@ -210,7 +210,7 @@ if (!isset($_SESSION['events'])) {
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-        $('a.btn-info').tooltip()
+            $('a.btn-info').tooltip()
         </script>
     </body>
 </html>

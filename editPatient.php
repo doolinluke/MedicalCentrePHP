@@ -1,4 +1,5 @@
 <?php
+
 require_once 'Patient.php';
 require_once 'Connection.php';
 require_once 'PatientTableGateway.php';
@@ -11,7 +12,7 @@ if ($id == "") {
 require 'ensureUserLoggedIn.php';
 
 $connection = Connection::getInstance();
-$gateway = new PatientTableGateway($connection); 
+$gateway = new PatientTableGateway($connection);
 
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 $fName = filter_input(INPUT_POST, 'fName', FILTER_SANITIZE_STRING);
@@ -24,7 +25,7 @@ $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING);
 $dateAdmitted = filter_input(INPUT_POST, 'dateAdmitted', FILTER_SANITIZE_STRING);
 $wardID = filter_input(INPUT_POST, 'wardID', FILTER_SANITIZE_NUMBER_INT);
 
-$gateway->updatePatient($id, $fName, $lName, $address,$phoneNumber, $email, $dob, $dateAdmitted, $wardID);
+$gateway->updatePatient($id, $fName, $lName, $address, $phoneNumber, $email, $dob, $dateAdmitted, $wardID);
 
 header('Location: home.php');
 

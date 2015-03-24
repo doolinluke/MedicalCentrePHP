@@ -25,7 +25,7 @@ $statement = $gateway->getPatients();
             <h2>View Patients</h2>
             <?php
             if (isset($message)) {
-                echo '<p>'.$message.'</p>';
+                echo '<p>' . $message . '</p>';
             }
             ?>
             <table class="table">
@@ -55,9 +55,9 @@ $statement = $gateway->getPatients();
                         echo '<td>' . $row['salary'] . '</td>';
                         echo '<td>' . $row['managerName'] . '</td>';
                         echo '<td>'
-                        . '<a href="viewPatient.php?id='.$row['id'].'">View</a> '
-                        . '<a href="editPatientForm.php?id='.$row['id'].'">Edit</a> '
-                        . '<a class="deletePatient" href="deletePatient.php?id='.$row['id'].'">Delete</a> '
+                        . '<a href="viewPatient.php?id=' . $row['id'] . '">View</a> '
+                        . '<a href="editPatientForm.php?id=' . $row['id'] . '">Edit</a> '
+                        . '<a class="deletePatient" href="deletePatient.php?id=' . $row['id'] . '">Delete</a> '
                         . '</td>';
                         echo '</tr>';
 

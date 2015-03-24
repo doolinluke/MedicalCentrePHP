@@ -151,7 +151,7 @@ $statement = $gateway->getPatients();
             </table>
         </div>
 
-        <div class="footerGroup navbar-fixed-bottom">
+        <div class="footerGroup navbar">
             <div class = "row">
                 <div class="row3">
                     <div class = "bottom col-md-3 col-xs-6">
