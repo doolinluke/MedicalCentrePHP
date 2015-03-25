@@ -21,6 +21,24 @@ class WardTableGateway {
 
         return $statement;
     }
+    
+    /*public function getWards($sortOrder) {
+        // execute a query to get all patients
+        $sqlQuery = "SELECT p.*, w.wardName AS wardName
+                    FROM patient p
+                    LEFT JOIN ward w ON w.wardID = p.wardID
+                    ORDER BY " . $sortOrder;
+
+        $statement = $this->connection->prepare($sqlQuery);
+        
+        $status = $statement->execute($params);
+
+        if (!$status) {
+            die("Could not retrieve patients");
+        }
+
+        return $statement;
+    }*/
 
     public function getWardById($wardID) {
         // execute a query to get the manager with the specified id

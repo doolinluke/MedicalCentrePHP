@@ -373,6 +373,9 @@ h4 {
     font-size: 15px;
 }
 
+.table th a {
+    color: #ddd;
+}
 .nav li a:hover {
     color: #3ca3ca;
 }

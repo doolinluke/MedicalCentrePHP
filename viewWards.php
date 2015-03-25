@@ -4,10 +4,21 @@ require_once 'WardTableGateway.php';
 
 require 'ensureUserLoggedIn.php';
 
+/*if (isset($_GET) && isset($_GET['sortOrder'])) {
+    $sortOrder = $_GET['sortOrder'];
+    $columnNames = array("wardName", "numberBeds", "headNurse");
+    if (!in_array($sortOrder, $columnNames)) {
+        $sortOrder = 'wardName';
+    }
+}
+else {
+    $sortOrder = 'wardName';
+}*/
+
 $connection = Connection::getInstance();
 $wardGateway = new WardTableGateway($connection);
 
-$wards = $wardGateway->getWards();
+$wards = $wardGateway->getWards($sortOrder);
 ?>
 <!DOCTYPE html>
 <html>
@@ -99,9 +110,9 @@ $wards = $wardGateway->getWards();
             <table class="table table-bordered table-responsive">
                 <thead>
                     <tr>
-                        <th>Ward Name</th>
-                        <th>Number of Beds</th>
-                        <th>Head Nurse</th> 
+                        <th><a href="viewWards.php?sortOrder=wardName">Ward Name</a></th>
+                        <th><a href="viewWards.php?sortOrder=numberBeds">Number of Beds</a></th>
+                        <th><a href="viewWards.php?sortOrder=headNurse">Head Nurse</a></th>
                         <th>Options</th>
                     </tr>
                 </thead>

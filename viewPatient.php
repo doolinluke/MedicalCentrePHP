@@ -10,6 +10,17 @@ if ($id == "") {
 
 require 'ensureUserLoggedIn.php';
 
+if (isset($_GET) && isset($_GET['sortOrder'])) {
+    $sortOrder = $_GET['sortOrder'];
+    $columnNames = array("patientID", "fName", "lName", "address", "phoneNumber", "email", "dob", "dateAdmitted", "wardName");
+    if (!in_array($sortOrder, $columnNames)) {
+        $sortOrder = 'patientID';
+    }
+}
+else {
+    $sortOrder = 'patientID';
+}
+
 if (!isset($_GET) || !isset($_GET['id'])) {
     die('Invalid request');
 }
@@ -19,7 +30,7 @@ $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
 
-$statement = $gateway->getPatients();
+$statement = $gateway->getPatients($sortOrder);
 ?>
 <!DOCTYPE html>
 <html>

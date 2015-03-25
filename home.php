@@ -5,10 +5,20 @@ require_once 'PatientTableGateway.php';
 
 require 'ensureUserLoggedIn.php';
 
+if (isset($_GET) && isset($_GET['sortOrder'])) {
+    $sortOrder = $_GET['sortOrder'];
+    $columnNames = array("patientID", "fName", "lName", "address", "phoneNumber", "email", "dob", "dateAdmitted", "wardName");
+    if (!in_array($sortOrder, $columnNames)) {
+        $sortOrder = 'patientID';
+    }
+}
+else {
+    $sortOrder = 'patientID';
+}
 $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
-$statement = $gateway->getPatients();
+$statement = $gateway->getPatients($sortOrder);
 
 $id = session_id();
 /* checking if there is not already a session and if there is start it */
@@ -121,15 +131,15 @@ if (!isset($_SESSION['events'])) {
             <table class="table table-bordered table-striped table-responsive">           
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Surname</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>DOB</th>
-                        <th>Admitted</th>
-                        <th>Ward</th>
+                        <th><a href="home.php?sortOrder=patientID">ID</a></th>
+                        <th><a href="home.php?sortOrder=fName">First Name</a></th>
+                        <th><a href="home.php?sortOrder=lName">Surname</a></th>
+                        <th><a href="home.php?sortOrder=address">Address</a></th>
+                        <th><a href="home.php?sortOrder=phoneNumber">Phone</a></th>
+                        <th><a href="home.php?sortOrder=email">Email</a></th>
+                        <th><a href="home.php?sortOrder=dob">DOB</a></th>
+                        <th><a href="home.php?sortOrder=dateAdmitted">Admitted</a></th>
+                        <th><a href="home.php?sortOrder=wardName">Ward</a></th>
                         <th>Options</th>
                     </tr>
                 </thead>
