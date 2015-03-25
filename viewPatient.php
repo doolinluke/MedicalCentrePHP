@@ -30,7 +30,7 @@ $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
 
-$statement = $gateway->getPatients($sortOrder);
+$statement = $gateway->getPatients($sortOrder, $filterName);
 ?>
 <!DOCTYPE html>
 <html>

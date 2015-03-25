@@ -8,16 +8,24 @@ class PatientTableGateway {
         $this->connection = $c;
     }
 
-    public function getPatients($sortOrder) {
+    public function getPatients($sortOrder, $filterName) {
         // execute a query to get all patients
         $sqlQuery = "SELECT p.*, w.wardName AS wardName
                     FROM patient p
-                    LEFT JOIN ward w ON w.wardID = p.wardID
-                    ORDER BY " . $sortOrder;
+                    LEFT JOIN ward w ON w.wardID = p.wardID " .
+                    (($filterName == NULL) ? "" : "WHERE p.fName LIKE :filterName") .
+                    " ORDER BY " . $sortOrder;
 
         $statement = $this->connection->prepare($sqlQuery);
-        
-        $status = $statement->execute($params);
+        if($filterName != NULL) {
+            $params = array(
+                "filterName" => "%" . $filterName . "%"
+            );
+            $status = $statement->execute($params);
+        }
+        else {
+            $status = $statement->execute();
+        }
 
         if (!$status) {
             die("Could not retrieve patients");

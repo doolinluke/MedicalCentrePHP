@@ -11,14 +11,20 @@ if (isset($_GET) && isset($_GET['sortOrder'])) {
     if (!in_array($sortOrder, $columnNames)) {
         $sortOrder = 'patientID';
     }
-}
-else {
+} else {
     $sortOrder = 'patientID';
 }
+
+if (isset($_GET) && isset($_GET['filterName'])) {
+    $filterName = filter_input(INPUT_GET, 'filterName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+} else {
+    $filterName = NULL;
+}
+
 $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
-$statement = $gateway->getPatients($sortOrder);
+$statement = $gateway->getPatients($sortOrder, $filterName);
 
 $id = session_id();
 /* checking if there is not already a session and if there is start it */
@@ -128,54 +134,78 @@ if (!isset($_SESSION['events'])) {
         </div>
 
         <div class="container">
-            <table class="table table-bordered table-striped table-responsive">           
-                <thead>
-                    <tr>
-                        <th><a href="home.php?sortOrder=patientID">ID</a></th>
-                        <th><a href="home.php?sortOrder=fName">First Name</a></th>
-                        <th><a href="home.php?sortOrder=lName">Surname</a></th>
-                        <th><a href="home.php?sortOrder=address">Address</a></th>
-                        <th><a href="home.php?sortOrder=phoneNumber">Phone</a></th>
-                        <th><a href="home.php?sortOrder=email">Email</a></th>
-                        <th><a href="home.php?sortOrder=dob">DOB</a></th>
-                        <th><a href="home.php?sortOrder=dateAdmitted">Admitted</a></th>
-                        <th><a href="home.php?sortOrder=wardName">Ward</a></th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $row = $statement->fetch(PDO::FETCH_ASSOC);
-                    while ($row) {
+            <div class="row">
+                <div class="col-md-2">
+                    <form class="form-horizontal" role="form" action="home.php?sortOrder=<?php echo $sortOrder; ?>" method="GET">                      
+                        <div class="form-group">
+                            <label class="control-label" for="lName">First Name</label>
+                            <div>
+                                <input type="text"
+                                       name="filterName"
+                                       class="form-control"
+                                       value="<?php echo $filterName; ?>" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"></label>
+                            <div>
+                                <button type="submit" name="filterBtn" id="filterBtn" class="btn btn-success">Filter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="col-md-10">
+                    <table class="table table-bordered table-striped table-responsive">           
+                        <thead>
+                            <tr>
+                                <th><a href="home.php?sortOrder=patientID">ID</a></th>
+                                <th><a href="home.php?sortOrder=fName">First Name</a></th>
+                                <th><a href="home.php?sortOrder=lName">Surname</a></th>
+                                <th><a href="home.php?sortOrder=address">Address</a></th>
+                                <th><a href="home.php?sortOrder=phoneNumber">Phone</a></th>
+                                <th><a href="home.php?sortOrder=email">Email</a></th>
+                                <th><a href="home.php?sortOrder=dob">DOB</a></th>
+                                <th><a href="home.php?sortOrder=dateAdmitted">Admitted</a></th>
+                                <th><a href="home.php?sortOrder=wardName">Ward</a></th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $row = $statement->fetch(PDO::FETCH_ASSOC);
+                            while ($row) {
 
-                        echo '<tr>';
-                        echo '<td>' . $row['patientID'] . '</td>';
-                        echo '<td>' . $row['fName'] . '</td>';
-                        echo '<td>' . $row['lName'] . '</td>';
-                        echo '<td>' . $row['address'] . '</td>';
-                        echo '<td>' . $row['phoneNumber'] . '</td>';
-                        echo '<td>' . $row['email'] . '</td>';
-                        echo '<td>' . $row['dob'] . '</td>';
-                        echo '<td>' . $row['dateAdmitted'] . '</td>';
-                        echo '<td>' . $row['wardName'] . '</td>';
-                        echo '<td>'
-                        . '<a class="btn btn-view btn-xs" href="viewPatient.php?id=' . $row['patientID'] . '">View</a> '
-                        . '<a class="btn btn-edit btn-xs" href="editPatientForm.php?id=' . $row['patientID'] . '">Edit</a> '
-                        . '<a class="deletePatient" href="deletePatient.php?id=' . $row['patientID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
-                        . '</td>';
-                        echo '</tr>';
+                                echo '<tr>';
+                                echo '<td>' . $row['patientID'] . '</td>';
+                                echo '<td>' . $row['fName'] . '</td>';
+                                echo '<td>' . $row['lName'] . '</td>';
+                                echo '<td>' . $row['address'] . '</td>';
+                                echo '<td>' . $row['phoneNumber'] . '</td>';
+                                echo '<td>' . $row['email'] . '</td>';
+                                echo '<td>' . $row['dob'] . '</td>';
+                                echo '<td>' . $row['dateAdmitted'] . '</td>';
+                                echo '<td>' . $row['wardName'] . '</td>';
+                                echo '<td>'
+                                . '<a class="btn btn-view btn-xs" href="viewPatient.php?id=' . $row['patientID'] . '">View</a> '
+                                . '<a class="btn btn-edit btn-xs" href="editPatientForm.php?id=' . $row['patientID'] . '">Edit</a> '
+                                . '<a class="deletePatient" href="deletePatient.php?id=' . $row['patientID'] . '"><button class = "btn btn-delete btn-xs">Delete</button></a> '
+                                . '</td>';
+                                echo '</tr>';
 
-                        $row = $statement->fetch(PDO::FETCH_ASSOC);
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
+                                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
 
-        <div class="row">
-            <div class="createButton">
-                <div class="container">
-                    <a class="btn btn-create btn-large" href="createPatientForm.php">Create new Patient</a>
+                <div class="row">
+                    <div class="createButton">
+                        <div class="container">
+                            <a class="btn btn-create btn-large" href="createPatientForm.php">Create new Patient</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
