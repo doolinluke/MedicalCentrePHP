@@ -1,4 +1,4 @@
-∑<?php
+<?php
 /*Instances for Patient class*/
 class Patient {
     private $patientID;

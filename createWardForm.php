@@ -20,7 +20,7 @@ $wards = $wardGateway->getWards();
     <head>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
         <meta charset="UTF-8">
-        <script type="text/javascript" src="Javascript/patient.js"></script>
+        <script type="text/javascript" src="Javascript/ward.js"></script>
         <title>Medical Centre</title>
         <meta charset="utf-8">  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -63,6 +63,7 @@ if ($wardID === FALSE || $wardID === '') {
     $errorMessage['wardID'] = 'Ward ID must not be blank<br/>';
 }
 
+//uses gateway to call insertPatient method and passes in variables
 $patientID = $gateway->insertPatient($fName, $lName, $address, $phoneNumber, $email, $dob, $dateAdmitted, $wardID);
 $message = "New Patient Created";
 header("Location: home.php");

@@ -59,6 +59,7 @@ class WardTableGateway {
     }
 
     public function insertWard($n, $nb, $hn) {
+        // execute a query to insert values into the ward table
         $sqlQuery = "INSERT INTO ward " .
                 "(wardName, numberBeds, headNurse) " .
                 "VALUES (:wardName, :numberBeds, :headNurse)";
@@ -82,6 +83,7 @@ class WardTableGateway {
     }
 
     public function deleteWard($wardID) {
+        // execute a query to delete row from ward where wardId = value entered
         $sqlQuery = "DELETE FROM ward WHERE wardID = :wardID";
 
         $statement = $this->connection->prepare($sqlQuery);
@@ -99,6 +101,7 @@ class WardTableGateway {
     }
 
     public function updateWard($wardID, $n, $nb, $hn) {
+        // execute a query to update ward
         $sqlQuery = "UPDATE ward SET " .
                 "wardName = :wardName, " .
                 "numberBeds = :numberBeds, " .

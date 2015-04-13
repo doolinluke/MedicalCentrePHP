@@ -7,10 +7,10 @@ class Connection { //create a class to make the connection
     public static function getInstance() {
         /* Creates new connection if connection doesn't already exist */
         if (Connection::$connection === NULL) {
-            $host = 'localhost'; //specify login details to phpmyadmin page
-            $database = 'phpmyadmin';
-            $username = 'root';
-            $password = '';
+            $host = 'daneel'; //specify login details to phpmyadmin page
+            $database = 'N00134696';
+            $username = 'N00134696';
+            $password = 'N00134696';
             $dsn = 'mysql:dbname=' . $database . ";host=" . $host;
 
             Connection::$connection = new PDO($dsn, $username, $password);

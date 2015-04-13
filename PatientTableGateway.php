@@ -9,7 +9,7 @@ class PatientTableGateway {
     }
 
     public function getPatients($sortOrder, $filterName) {
-        // execute a query to get all patients
+        // execute a query to get all patients and sort by first name and to display the ward name instead of wardId by using a join where wardId in patients = wardId in ward
         $sqlQuery = "SELECT p.*, w.wardName AS wardName
                     FROM patient p
                     LEFT JOIN ward w ON w.wardID = p.wardID " .
@@ -35,7 +35,7 @@ class PatientTableGateway {
     }
 
     public function getPatientsByWardId($wardID) {
-        // execute a query to get the user with the specified id
+        // execute a query to get all users assigned to a specific ward by using a join where wardId in patients = wardId in ward
         $sqlQuery = "SELECT p.*, w.wardName AS wardName
                     FROM patient p 
                     LEFT JOIN ward w ON w.wardID = p.wardID

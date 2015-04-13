@@ -37,6 +37,7 @@ if ($headNurse === FALSE || $address === '') {
     $errorMessage['headNurseError'] = 'Head Nurse must not be blank<br/>';
 }
 
+//uses gateway to call insertWard method and passes in variables
 $wardID = $gateway->insertWard($wardName, $numberBeds, $headNurse);
 $message = "New Ward Created";
 header("Location: viewWards.php");

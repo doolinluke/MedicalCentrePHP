@@ -17,6 +17,7 @@ if (!isset($_GET) || !isset($_GET['id'])) {
 $id = $_GET['id'];
 
 $connection = Connection::getInstance();
+//gateway calls deleteWard method from WardTableGateway
 $gateway = new WardTableGateway($connection);
 
 $gateway->deleteWard($id);

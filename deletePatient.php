@@ -19,6 +19,7 @@ $id = $_GET['id'];
 $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
+//gateway calls deletePatient method from PatientTableGateway
 $gateway->deletePatient($id);
 
 header("Location: home.php");
