@@ -14,7 +14,7 @@ require 'ensureUserLoggedIn.php';
 $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
-$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+$id = filter_input(INPUT_POST, 'patientID', FILTER_SANITIZE_NUMBER_INT);
 $fName = filter_input(INPUT_POST, 'fName', FILTER_SANITIZE_STRING);
 $lName = filter_input(INPUT_POST, 'lName', FILTER_SANITIZE_STRING);
 $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);

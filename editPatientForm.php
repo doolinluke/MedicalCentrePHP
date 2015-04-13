@@ -111,7 +111,7 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
 
         <div class="container">
             <form id="editPatientForm" name="editPatientForm" action="editPatient.php" method="POST">
-                <input type="hidden" name="id" value="<?php echo $id; ?>" />
+                <input type="hidden" name="patientID" value="<?php echo $id; ?>" />
                 <table class="table table-bordered table-responsive">
                     <tbody>
                         <tr>

@@ -3,18 +3,26 @@ require_once 'Patient.php';
 require_once 'Connection.php';
 require_once 'PatientTableGateway.php';
 
-$id = session_id();
-if ($id == "") {
-    session_start();
+if (isset($_GET) && isset($_GET['sortOrder'])) {
+    $sortOrder = $_GET['sortOrder'];
+    $columnNames = array("patientID", "fName", "lName", "address", "phoneNumber", "email", "dob", "dateAdmitted", "wardName");
+    if (!in_array($sortOrder, $columnNames)) {
+        $sortOrder = 'patientID';
+    }
+} else {
+    $sortOrder = 'patientID';
 }
-if (!isset($username)) {
-    $username = '';
+
+if (isset($_GET) && isset($_GET['filterName'])) {
+    $filterName = filter_input(INPUT_GET, 'filterName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+} else {
+    $filterName = NULL;
 }
 
 $connection = Connection::getInstance();
 $gateway = new PatientTableGateway($connection);
 
-$statement = $gateway->getPatients();
+$statement = $gateway->getPatients($sortOrder, $filterName);
 ?>
 <!DOCTYPE html>
 <html>

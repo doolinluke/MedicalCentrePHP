@@ -117,6 +117,10 @@ class WardTableGateway {
         );
 
         $status = $statement->execute($params);
+        
+        if (!$status) {
+            die("Could not update ward");
+        }
 
         return ($statement->rowCount() == 1);
     }

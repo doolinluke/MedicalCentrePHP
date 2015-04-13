@@ -173,7 +173,7 @@ $row = $statement->fetch(PDO::FETCH_ASSOC);
                 </table>
             </form>
         </div>
-        <div class="footerGroup navbar">
+        <div class="footerGroup navbar-fixed-bottom">
             <div class = "row">
                 <div class="row3">
                     <div class = "bottom col-md-3 col-xs-6">
